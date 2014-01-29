@@ -20,5 +20,6 @@ For the reader connection, create a User with Execute permissions on the followi
 * `usp_SelectServicesForHeading`
 * `usp_UrlSelectForms`
 * `usp_UrlSelectPopularForms`
+* `usp_UrlSelectForScanner`
 
 For the writer connection, create a User with Execute permissions to all the other stored procedures, and `usp_UrlSelectPopularForms`.
