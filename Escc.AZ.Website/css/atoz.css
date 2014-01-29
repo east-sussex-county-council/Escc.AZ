@@ -1,0 +1,17 @@
+﻿#ctl00_content_azq { font-size: 1.076923em; line-height: 1em; padding: 6px; margin: 0 .5em 0 0; border: 2px solid #9c9c9c; border-radius: 5px; width: 60%; } /* 14px font */
+#azSearchForm .button { margin: 0; }
+#azSearchForm label input { margin-right: .5em; }
+
+.form .alphabet { font-size: 1.230769em; line-height: 1.125em; margin: 1.125em 0 0 -.2em; font-weight: bold; }
+.form .alphabet a, .form .alphabet em { padding: 0 .2em; }
+.form .alphabet em { color: #fff; background: #003c69; font-style: normal; border-radius: 3px; }
+
+.text .az { margin: 1.384615em 0; }
+.text .az li { list-style: none; background: url(/img/body/item-type.gif) no-repeat 0 -995px; padding-left: 16px; margin: .692308em 0; }
+
+/* One line space (border + margin) between services as separator. Matching horizontal margin and padding to take border to edge of box. */
+.azService { border-bottom: .076923em solid #dae1e5; margin: 0 -18px 1.307692em; padding: 0 18px 0; }
+@media print { .azService { padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; } }
+
+/* A-Z navigation in A-Z of forms */
+.azNav a, .azNav em { font-size: 1.230769em; line-height: 1.125em; font-weight: bold; font-style: normal; margin-right: .5em; }

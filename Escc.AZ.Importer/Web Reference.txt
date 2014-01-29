@@ -1,0 +1,8 @@
+
+NOTE:
+
+VS 2003 can't generate web reference as it can't cope with authentication it requires. Instead, use this command line:
+
+wsdl /n:Escc.AZ.Importer /username:username /password:password 
+	/proxyusername:username /proxypassword:password /proxydomain:domain
+	https://www.accesseastsussex.org/webservices/councilservices.asmx?WSDL

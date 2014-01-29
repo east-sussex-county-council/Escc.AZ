@@ -1,0 +1,323 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.accesseastsussex.org/services" xmlns:bs7666="http://www.govtalk.gov.uk/people/bs7666" elementFormDefault="qualified" targetNamespace="http://www.accesseastsussex.org/services">
+<xsd:import namespace="http://www.govtalk.gov.uk/people/bs7666" schemaLocation="BS7666-v1-4.xsd" />
+<!--
+
+Access East Sussex Service Database Schema
+Version: 1.1
+Created: 15/8/2005 
+
+
+change log : 05/9/2005
+
+	changed Service/Area to enclude enumeration for "East Sussex" representing ESCC
+	changed Service/ServiceUrl to minOccurs="0"
+	changed Service/Address/Contact to minOccurs="0"
+	changed Url_Url_Type max length to 255
+	changed Url_Text_Type max length to 75
+	changed Address_Validation_Type to include enumerated values
+	changed Address_Type/UPRN to use bs7666:UPRNtype
+	changed Address_Type/USRN to use bs7666:USRNtype
+	changed Address_Type/PAON to use bs7666:PAONtype
+	changed Address_Type/SAON to use bs7666:SAONtype
+	changed Address_Type/Street to use bs7666:bs7666:StreetDescriptorType  ? - not sure if this is correct
+	changed Address_Type/Locality to use bs7666:LocalityType
+	changed Address_Type/Town to use bs7666:TownType
+	changed Address_Type/AdministrativeArea to use bs7666:AdministrativeAreaType
+	changed Address_Type/Postcode to use bs7666:PostCodeType
+
+-->
+
+<xsd:element name="Services" type="servicesType" />
+
+ <xsd:complexType name="servicesType">
+  <xsd:sequence maxOccurs="unbounded">
+   <xsd:element name="Service" type="serviceType"/>
+  </xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:complexType name="serviceType">
+ <xsd:sequence>
+   <xsd:element name="ServiceName" type="Service_ServiceName_Type" minOccurs="1" maxOccurs="1" />
+   <xsd:element name="ServiceDescription" type="Service_ServiceDescription_Type" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="Area" type="Service_Area_Type" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="Keywords" type="Service_Keywords_Type" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="Category" type="Category_Type" minOccurs="1" maxOccurs="unbounded" />
+   <xsd:element name="Address" type="Address_Type" minOccurs="0" maxOccurs="unbounded" />
+   <xsd:element name="ServiceUrl" type="Url_Type" minOccurs="0" maxOccurs="unbounded" />   
+  </xsd:sequence>
+  <xsd:attribute name="ServiceId" type="Service_id_Type" />
+  <xsd:attribute name="PublicationRule" type="Service_PublicationRule_Type" use="required"/>
+ </xsd:complexType>
+
+  <xsd:complexType name="Url_Type">
+   <xsd:sequence>
+     <xsd:element name="UrlText" type="Url_Text_Type" minOccurs="0" maxOccurs="1" />
+     <xsd:element name="UrlDescription" type="Url_Description_Type" minOccurs="0" maxOccurs="1" />
+     <xsd:element name="Provider" type="Url_Provider_Type" minOccurs="0" maxOccurs="1" />
+     <xsd:element name="Url" type="Url_Url_Type" minOccurs="1" maxOccurs="1" />
+   </xsd:sequence>
+   <xsd:attribute name="UrlId" type="Url_id_Type" />
+   <xsd:attribute name="ServiceId" type="Service_id_Type" />
+  </xsd:complexType>
+
+  <xsd:complexType name="Category_Type">
+   <xsd:sequence>
+     <xsd:element name="Scheme" type="Category_Scheme_Type" minOccurs="1" maxOccurs="1" />
+     <xsd:element name="Identifier" type="Category_Identifier_Type" minOccurs="1" maxOccurs="1" />
+     <xsd:element name="CommonName" type="Category_CommonName_Type" minOccurs="1" maxOccurs="1" />
+   </xsd:sequence>
+   <xsd:attribute name="ServiceId" type="Service_id_Type" />
+   <xsd:attribute name="CategoryId" type="Category_CategoryId_Type" />
+  </xsd:complexType>
+
+
+  <xsd:complexType name="Address_Type">
+  	<xsd:sequence>
+              <xsd:element name="AddressUrl" type="Address_AddressUrl_Type" minOccurs="0" />
+              <xsd:element name="AddressUrlText" type="Address_AddressUrlText_Type" minOccurs="0" />
+              <xsd:element name="Validation" type="Address_Validation_Type" />
+              <xsd:element name="Easting" type="xsd:int" minOccurs="0" />
+              <xsd:element name="Northing" type="xsd:int" minOccurs="0" />
+              <xsd:element name="UPRN" minOccurs="0" type="bs7666:UPRNtype" />
+              <xsd:element name="USRN" minOccurs="0" type="bs7666:USRNtype" />
+              <xsd:element name="PAON" minOccurs="0" type="bs7666:PAONtype" />
+              <xsd:element name="SAON" minOccurs="0" type="bs7666:SAONtype" />
+              <xsd:element name="Street" minOccurs="0" type="bs7666:StreetDescriptorType" />
+              <xsd:element name="Locality" minOccurs="0" type="bs7666:LocalityType" />
+              <xsd:element name="Town" minOccurs="0" type="bs7666:TownType" />
+              <xsd:element name="AdministrativeArea" minOccurs="0" type="bs7666:AdministrativeAreaType" />
+              <xsd:element name="Postcode" minOccurs="0" type="bs7666:PostCodeType" />
+              <xsd:element name="Contact" type="Contact_Type" minOccurs="0" maxOccurs="unbounded" />
+  	</xsd:sequence>
+  	<xsd:attribute name="AddressId" type="Address_AddressId_Type" />
+  	<xsd:attribute name="ServiceId" type="Service_id_Type" />
+  	<xsd:attribute name="HasAddress" type="xsd:boolean" use="required"/>
+  </xsd:complexType>
+
+
+
+<xsd:complexType name="Contact_Type">
+    <xsd:sequence>
+              <xsd:element name="FirstName" minOccurs="0" type="Contact_FirstName_Type" />
+              <xsd:element name="LastName" minOccurs="0" type="Contact_LastName_Type" />
+              <xsd:element name="ContactDescription" minOccurs="0" type="Contact_ContactDescription_Type" />
+              <xsd:element name="EmailText" minOccurs="0" type="Contact_EmailText_Type" />
+              <xsd:element name="EmailAddress" minOccurs="0" type="Contact_EmailAddress_Type" />
+              <xsd:element name="PhoneText" minOccurs="0" type="Contact_PhoneText_Type" />
+              <xsd:element name="PhoneArea" minOccurs="0" type="Contact_PhoneArea_Type" />
+              <xsd:element name="Phone" minOccurs="0" type="Contact_Phone_Type" />
+              <xsd:element name="PhoneExtension" minOccurs="0" type="Contact_PhoneExtension_Type" />
+    </xsd:sequence>
+    <xsd:attribute name="ContactId" type="Contact_ContactId_Type" />
+    <xsd:attribute name="AddressId" type="Address_AddressId_Type" />    
+</xsd:complexType> 
+
+
+ <!-- ID Fields.  Not required in source documents -->
+
+ <!-- Service.ServiceId -->
+ <xsd:simpleType name="Service_id_Type">
+  	<xsd:restriction base="xsd:int" />
+ </xsd:simpleType>
+
+ <!-- Url.UrlId -->
+ <xsd:simpleType name="Url_id_Type">
+ 	<xsd:restriction base="xsd:int" />
+ </xsd:simpleType>
+ 
+ <!-- Category.CategoryId -->
+ <xsd:simpleType name="Category_CategoryId_Type">
+ 	<xsd:restriction base="xsd:int" />
+ </xsd:simpleType> 
+
+ <!-- Address.AddressId -->
+ <xsd:simpleType name="Address_AddressId_Type">
+ 	<xsd:restriction base="xsd:int" />
+ </xsd:simpleType>  
+ 
+ <!-- Contact.ContactId -->
+ <xsd:simpleType name="Contact_ContactId_Type">
+ 	<xsd:restriction base="xsd:int" />
+ </xsd:simpleType>   
+
+ <!-- All field data types -->
+
+ <!-- Service.PublicationRule -->
+ <xsd:simpleType name="Service_PublicationRule_Type">
+ 	<xsd:restriction base="xsd:boolean" />
+ </xsd:simpleType>
+ 
+ <!-- Service.Service -->
+ <xsd:simpleType name="Service_ServiceName_Type">
+ 	<xsd:restriction base="xsd:string">
+ 		<xsd:maxLength value="250" />
+ 	</xsd:restriction>
+ </xsd:simpleType>
+  
+ <!-- Service.ServiceDescription -->
+ <xsd:simpleType name="Service_ServiceDescription_Type">
+ 	<xsd:restriction base="xsd:string">
+ 		<xsd:maxLength value="2500" />
+ 	</xsd:restriction>
+ </xsd:simpleType>
+ 
+ <!-- Service.Keywords -->
+ <xsd:simpleType name="Service_Keywords_Type">
+  	<xsd:restriction base="xsd:string">
+  		<xsd:maxLength value="250" />
+  	</xsd:restriction>
+ </xsd:simpleType>
+   
+ <!-- Service.Area -->
+ <xsd:simpleType name="Service_Area_Type">
+ 	<xsd:restriction base="xsd:string">
+ 		<xsd:maxLength value="100" />
+ 		<xsd:enumeration value="East Sussex" />
+ 		<xsd:enumeration value="Lewes" />
+ 		<xsd:enumeration value="Hastings" />
+ 		<xsd:enumeration value="Rother" />
+ 		<xsd:enumeration value="Wealden" />
+ 		<xsd:enumeration value="Eastbourne" />
+ 	</xsd:restriction>
+ </xsd:simpleType>
+ 
+
+ <!-- Url.Url -->
+ <xsd:simpleType name="Url_Url_Type">
+   	<xsd:restriction base="xsd:string">
+   		<xsd:maxLength value="255" />
+		<xsd:pattern value="^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|localhost|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$" />
+   	</xsd:restriction>
+ </xsd:simpleType>
+
+ <!-- Url.UrlText -->
+ <xsd:simpleType name="Url_Text_Type">
+  	<xsd:restriction base="xsd:string">
+  		<xsd:maxLength value="75" />
+  	</xsd:restriction>
+ </xsd:simpleType>
+
+ <!-- Url.UrlDescription -->
+ <xsd:simpleType name="Url_Description_Type">
+  	<xsd:restriction base="xsd:string">
+  		<xsd:maxLength value="300" />
+  	</xsd:restriction>
+ </xsd:simpleType>
+ 
+ <!-- Url.Provider -->
+ <xsd:simpleType name="Url_Provider_Type">
+  	<xsd:restriction base="xsd:string">
+  		<xsd:maxLength value="150" />
+  	</xsd:restriction>
+ </xsd:simpleType> 
+ 
+ <!-- Category.Scheme -->
+ <xsd:simpleType name="Category_Scheme_Type">
+  	<xsd:restriction base="xsd:string">
+  		<xsd:maxLength value="200" />
+  	</xsd:restriction>
+ </xsd:simpleType>
+ 
+ 
+ <!-- Category.Identifier -->
+ <xsd:simpleType name="Category_Identifier_Type">
+  	<xsd:restriction base="xsd:string">
+  		<xsd:maxLength value="200" />
+  	</xsd:restriction>
+ </xsd:simpleType>
+ 
+ <!-- Category.CommonName -->
+ <xsd:simpleType name="Category_CommonName_Type">
+  	<xsd:restriction base="xsd:string">
+  		<xsd:maxLength value="100" />
+  	</xsd:restriction>
+ </xsd:simpleType>
+ 
+  <!-- Address.AddressUrl -->
+  <!-- Regular Expression Source : http://www.regexlib.com/REDetails.aspx?regexp_id=501 -->
+  <xsd:simpleType name="Address_AddressUrl_Type">
+    <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="255" />
+        <xsd:pattern value="^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|localhost|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
+<!-- Address.AddressUrlText -->
+<xsd:simpleType name="Address_AddressUrlText_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="75" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+<!-- Address.Validation -->
+<xsd:simpleType name="Address_Validation_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="20" />
+    <xsd:enumeration value="not-checked" />
+    <xsd:enumeration value="PAF-check-failed" />
+    <xsd:enumeration value="PAF-check-valid" />
+    <xsd:enumeration value="NLPG-check-failed" />
+    <xsd:enumeration value="NLPG-check-valid" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:simpleType name="Contact_FirstName_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="35" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="Contact_LastName_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="35" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="Contact_ContactDescription_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="255" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="Contact_EmailText_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="75" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+<!-- Regular Experssion Source : http://www.regexlib.com/DisplayPatterns.aspx -->
+<xsd:simpleType name="Contact_EmailAddress_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="255" />
+    <xsd:pattern value="^([a-zA-Z0-9_\-])+(\.([a-zA-Z0-9_\-])+)*@((\[(((([0-1])?([0-9])?[0-9])|(2[0-4][0-9])|(2[0-5][0-5])))\.(((([0-1])?([0-9])?[0-9])|(2[0-4][0-9])|(2[0-5][0-5])))\.(((([0-1])?([0-9])?[0-9])|(2[0-4][0-9])|(2[0-5][0-5])))\.(((([0-1])?([0-9])?[0-9])|(2[0-4][0-9])|(2[0-5][0-5]))\]))|((([a-zA-Z0-9])+(([\-])+([a-zA-Z0-9])+)*\.)+([a-zA-Z])+(([\-])+([a-zA-Z0-9])+)*))$" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="Contact_PhoneText_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="75" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="Contact_PhoneArea_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="5" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:simpleType name="Contact_Phone_Type">
+  <xsd:restriction base="xsd:string">
+    <xsd:maxLength value="8" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+ <xsd:simpleType name="Contact_PhoneExtension_Type">
+   <xsd:restriction base="xsd:string">
+     <xsd:maxLength value="8" />
+   </xsd:restriction>
+</xsd:simpleType> 
+
+
+</xsd:schema>

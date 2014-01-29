@@ -1,0 +1,15 @@
+﻿/* A-Z navigation when choosing a heading or service to edit. Increase text size to 16px/18px with one line space above and below. */
+.full-page .alphabet { font-size: 1.230769em; line-height: 1.125em; margin: 1.2em 0; font-weight: bold; }
+.full-page .alphabet a, .full-page .alphabet em { margin-right: 1%; } 
+
+/* Edit URLs assigned to an A-Z service */
+.azUrlEdit { border: 0; border-top: 1px solid #ccc; }
+.azUrlData { float: left; width: 75%; }
+.azUrlData .formLabel { width: 20%; }
+.azUrlData .formControl { width: 75%;}
+.azUrlSort { float: left; width: 6%;}
+.azUrlSort input { display: block; padding-top: 5px; }
+.azUrlDelete { float: left; width: 12%; }
+
+/* Edit phone numbers on one line when editing contacts */
+html body .full-page .phoneFragment { display: inline; width: 4em; }

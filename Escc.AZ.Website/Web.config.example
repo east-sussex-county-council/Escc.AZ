@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+  </configSections>
+  <appSettings>
+    <add key="DbConnectionStringAZ" value="connection string" />
+  </appSettings>
+  <system.web>
+    <compilation defaultLanguage="c#" debug="true" targetFramework="4.0" />
+    <globalization requestEncoding="utf-8" responseEncoding="utf-8" />
+    <httpRuntime requestValidationMode="2.0"/>
+    <pages clientIDMode="AutoID" validateRequest="false">
+      <controls>
+        <add tagPrefix="AZ" namespace="Escc.AZ" assembly="Escc.AZ, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f" />
+        <!-- Add controls which are declared at root of site, repeated here in dev only for Visual Studio intellisense-->
+        <add tagPrefix="EastSussexGovUK" namespace="EsccWebTeam.EastSussexGovUK" assembly="EsccWebTeam.EastSussexGovUK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f" />
+        <add tagPrefix="Egms" namespace="EsccWebTeam.Egms" assembly="EsccWebTeam.Egms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f" />
+        <add tagPrefix="NavigationControls" namespace="EsccWebTeam.NavigationControls" assembly="EsccWebTeam.NavigationControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f" />
+      </controls>
+    </pages>
+    <xhtmlConformance mode="Strict" />
+  </system.web>
+</configuration>
