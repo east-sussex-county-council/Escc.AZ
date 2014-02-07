@@ -11,7 +11,7 @@
 		 />
     <meta name="robots" content="noindex, follow" />
     <Egms:Css Files="AtoZ;FormsSmall" runat="server" />
-    <Egms:Script runat="server" Files="AtoZ" MergeWithSimilar="false" />
+    <Egms:Script runat="server" Files="AtoZ" MergeWithSimilar="false" ID="azScript" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
         <Egms:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
         <Egms:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />

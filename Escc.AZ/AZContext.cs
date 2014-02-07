@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Globalization;
 using System.Web;
 
@@ -161,6 +162,20 @@ namespace Escc.AZ
         public string SelectedChar
         {
             get { return this.selectedChar; }
+        }
+
+        /// <summary>
+        /// Gets whether to include data from partners other than East Sussex County Council
+        /// </summary>
+        /// <value><c>true</c> if partners enabled; otherwise, <c>false</c>.</value>
+        public bool PartnersEnabled
+        {
+            get
+            { 
+                var setting = ConfigurationManager.AppSettings["Escc.AZ.PartnersEnabled"];
+
+                return (!String.IsNullOrEmpty(setting) && Boolean.Parse(setting));
+            }
         }
     }
 }

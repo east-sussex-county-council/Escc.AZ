@@ -30,6 +30,7 @@ namespace Escc.AZ.Website
             Http.CacheDaily(5, 0);
 
             this.context = AZContext.Current;
+            this.azScript.Visible = this.context.PartnersEnabled;
 
             // check for search request
             if (Request.QueryString["azq"] != null && Request.QueryString["azq"].ToString().Trim().Length > 0)

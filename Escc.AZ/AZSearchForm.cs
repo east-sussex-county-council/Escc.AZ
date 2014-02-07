@@ -27,6 +27,7 @@ namespace Escc.AZ
             // shorthand
             HttpRequest request = HttpContext.Current.Request;
             HttpResponse response = HttpContext.Current.Response;
+            this.azContext = new AZContext();
 
             // check whether a search has been performed, and put it in the querystring
             if (request.Form["ctl00$content$azq"] != null)
@@ -35,13 +36,16 @@ namespace Escc.AZ
                 {
                     StringBuilder url = new StringBuilder("/atoz/default.aspx?azq=");
                     url.Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$azq"].Trim().ToString()));
-                    if (request.Form["autoPostback"] != null) url.Append("&autoPostback=").Append(this.Context.Server.UrlEncode(request.Form["autoPostback"].Trim()));
-                    if (request.Form["ctl00$content$acc"] != null) url.Append("&acc=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$acc"].Trim()));
-                    if (request.Form["ctl00$content$ae"] != null) url.Append("&ae=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$ae"].Trim()));
-                    if (request.Form["ctl00$content$ah"] != null) url.Append("&ah=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$ah"].Trim()));
-                    if (request.Form["ctl00$content$al"] != null) url.Append("&al=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$al"].Trim()));
-                    if (request.Form["ctl00$content$ar"] != null) url.Append("&ar=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$ar"].Trim()));
-                    if (request.Form["ctl00$content$aw"] != null) url.Append("&aw=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$aw"].Trim()));
+                    if (this.azContext.PartnersEnabled)
+                    {
+                        if (request.Form["autoPostback"] != null) url.Append("&autoPostback=").Append(this.Context.Server.UrlEncode(request.Form["autoPostback"].Trim()));
+                        if (request.Form["ctl00$content$acc"] != null) url.Append("&acc=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$acc"].Trim()));
+                        if (request.Form["ctl00$content$ae"] != null) url.Append("&ae=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$ae"].Trim()));
+                        if (request.Form["ctl00$content$ah"] != null) url.Append("&ah=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$ah"].Trim()));
+                        if (request.Form["ctl00$content$al"] != null) url.Append("&al=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$al"].Trim()));
+                        if (request.Form["ctl00$content$ar"] != null) url.Append("&ar=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$ar"].Trim()));
+                        if (request.Form["ctl00$content$aw"] != null) url.Append("&aw=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$aw"].Trim()));
+                    }
                     if (request.Form["ctl00$content$index"] != null) url.Append("&index=").Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$index"].Trim()));
 
                     response.Redirect(url.ToString());
@@ -55,7 +59,6 @@ namespace Escc.AZ
                 }
             }
 
-            this.azContext = new AZContext();
 
         }
 
@@ -125,19 +128,22 @@ namespace Escc.AZ
                 }
             }
 
-            //// create checkboxes for each authority ////
-            CreateCheckboxes();
-
-            // add noscript text
-            using (var noscript = new HtmlGenericControl("noscript"))
+            if (this.azContext.PartnersEnabled)
             {
-                noscript.Attributes.Add("class", "noscript");
-                using (var noPara = new HtmlGenericControl("p"))
+                //// create checkboxes for each authority ////
+                CreateCheckboxes();
+
+                // add noscript text
+                using (var noscript = new HtmlGenericControl("noscript"))
                 {
-                    noPara.InnerText = Properties.Resources.SearchNoScript;
-                    noscript.Controls.Add(noPara);
+                    noscript.Attributes.Add("class", "noscript");
+                    using (var noPara = new HtmlGenericControl("p"))
+                    {
+                        noPara.InnerText = Properties.Resources.SearchNoScript;
+                        noscript.Controls.Add(noPara);
+                    }
+                    this.Controls.Add(noscript);
                 }
-                this.Controls.Add(noscript);
             }
 
             // add containing boxes for grid
@@ -148,14 +154,17 @@ namespace Escc.AZ
                 // add A-Z grid nav
                 using (var azNav = new AZNavigation())
                 {
-                    if (request.QueryString["autoPostback"] != null) azNav.AddQueryStringParameter("autoPostback", request.QueryString["autoPostback"]);
-                    else if (request.QueryString["azq"] == null) azNav.AddQueryStringParameter("autoPostback", "on"); // default to on if form not submitted (ie: not a postback) 
-                    if (request.QueryString["acc"] != null) azNav.AddQueryStringParameter("acc", request.QueryString["acc"]);
-                    if (request.QueryString["ae"] != null) azNav.AddQueryStringParameter("ae", request.QueryString["ae"]);
-                    if (request.QueryString["ah"] != null) azNav.AddQueryStringParameter("ah", request.QueryString["ah"]);
-                    if (request.QueryString["al"] != null) azNav.AddQueryStringParameter("al", request.QueryString["al"]);
-                    if (request.QueryString["ar"] != null) azNav.AddQueryStringParameter("ar", request.QueryString["ar"]);
-                    if (request.QueryString["aw"] != null) azNav.AddQueryStringParameter("aw", request.QueryString["aw"]);
+                    if (this.azContext.PartnersEnabled)
+                    {
+                        if (request.QueryString["autoPostback"] != null) azNav.AddQueryStringParameter("autoPostback", request.QueryString["autoPostback"]);
+                        else if (request.QueryString["azq"] == null) azNav.AddQueryStringParameter("autoPostback", "on"); // default to on if form not submitted (ie: not a postback) 
+                        if (request.QueryString["acc"] != null) azNav.AddQueryStringParameter("acc", request.QueryString["acc"]);
+                        if (request.QueryString["ae"] != null) azNav.AddQueryStringParameter("ae", request.QueryString["ae"]);
+                        if (request.QueryString["ah"] != null) azNav.AddQueryStringParameter("ah", request.QueryString["ah"]);
+                        if (request.QueryString["al"] != null) azNav.AddQueryStringParameter("al", request.QueryString["al"]);
+                        if (request.QueryString["ar"] != null) azNav.AddQueryStringParameter("ar", request.QueryString["ar"]);
+                        if (request.QueryString["aw"] != null) azNav.AddQueryStringParameter("aw", request.QueryString["aw"]);
+                    }
 
                     azNav.TargetFile = request.ServerVariables["SCRIPT_NAME"].ToString();
                     if (String.IsNullOrEmpty(request.QueryString["azq"]))

@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Escc.AZ.Website
-{
-
-
-    public partial class Headings
-    {
-
+namespace Escc.AZ.Website {
+    
+    
+    public partial class Headings {
+        
         /// <summary>
         /// headContent control.
         /// </summary>
@@ -22,7 +20,16 @@ namespace Escc.AZ.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::EsccWebTeam.Egms.MetadataControl headContent;
-
+        
+        /// <summary>
+        /// azScript control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EsccWebTeam.Egms.Script azScript;
+        
         /// <summary>
         /// azSearchForm control.
         /// </summary>
@@ -31,7 +38,7 @@ namespace Escc.AZ.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Escc.AZ.AZSearchForm azSearchForm;
-
+        
         /// <summary>
         /// criteria control.
         /// </summary>
@@ -40,7 +47,7 @@ namespace Escc.AZ.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl criteria;
-
+        
         /// <summary>
         /// notFound control.
         /// </summary>
@@ -49,7 +56,7 @@ namespace Escc.AZ.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl notFound;
-
+        
         /// <summary>
         /// notFoundSearch control.
         /// </summary>
@@ -58,7 +65,7 @@ namespace Escc.AZ.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl notFoundSearch;
-
+        
         /// <summary>
         /// searchLink control.
         /// </summary>
@@ -67,7 +74,7 @@ namespace Escc.AZ.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor searchLink;
-
+        
         /// <summary>
         /// searchTerm control.
         /// </summary>
@@ -76,7 +83,7 @@ namespace Escc.AZ.Website
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal searchTerm;
-
+        
         /// <summary>
         /// headingList control.
         /// </summary>

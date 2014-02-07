@@ -203,7 +203,7 @@ namespace Escc.AZ.Website
         /// <param name="service">The AZService containing the data</param>
         /// <param name="mainHeading">Main heading of page, if we want to make sure one-and-only service doesn't duplicate it</param>
         /// <returns>a Control which can be added to the page</returns>
-        private static Control BuildService(AZService service, string mainHeading)
+        private Control BuildService(AZService service, string mainHeading)
         {
             // create container control
             using (HtmlGenericControl div = new HtmlGenericControl("div"))
@@ -246,9 +246,12 @@ namespace Escc.AZ.Website
                     if (service.Service.ToUpperInvariant().Trim() != mainHeading.ToUpperInvariant().Trim())
                     {
                         h2.InnerText = service.Service;
-                        h2.InnerText += " (" + authName + ")";
+                        if (this.context.PartnersEnabled)
+                        {
+                            h2.InnerText += " (" + authName + ")";
+                        }
                     }
-                    else
+                    else if (this.context.PartnersEnabled)
                     {
                         h2.InnerText = authName;
                     }
