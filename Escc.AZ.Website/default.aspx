@@ -28,7 +28,6 @@
 
             <p><a href="#services" class="keyboard aural">Skip to services</a></p>
 	
-	        <p>Find services provided by the county, district and borough councils in East Sussex.</p>
             <p>For a list of services you can apply for online or by post, see our <a href="/atoz/forms/">A&#8211;Z of forms</a>.</p>
 	        <p>If you can't find what you want, try searching the whole site using the main search box at the top right of any page.</p>
 	        <p>For a summary of this information in standard format, large print, on audio tape or in other languages, please call us on 01273 481920 or email <a href="/contactus/emailus/email.aspx?n=Corporate Communications&amp;e=corporate.communications&amp;d=eastsussex.gov.uk">Corporate Communications</a>.</p>
