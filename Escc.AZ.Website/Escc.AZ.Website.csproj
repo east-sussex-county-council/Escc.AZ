@@ -134,23 +134,23 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\..\..\VS Projects\_Libraries for re-use\EsccWebTeam.Data.Web\EsccWebTeam.Data.Web.csproj">
+    <ProjectReference Include="..\..\Escc.Data.Web\EsccWebTeam.Data.Web.csproj">
       <Project>{9C56D3DD-4952-4A1B-9AD6-907A1142872F}</Project>
       <Name>EsccWebTeam.Data.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Inetpub\wwwroot\eastsussex.gov.uk.csproj">
+    <ProjectReference Include="..\..\Escc.EastSussexGovUK\EsccWebTeam.EastSussexGovUK.csproj">
       <Project>{1426FEF0-23DC-4C23-AE15-67F2527BD741}</Project>
-      <Name>eastsussex.gov.uk</Name>
+      <Name>EsccWebTeam.EastSussexGovUK</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VS Projects\_Standards\E-Government Metadata Standard %28E-GMS%29\EsccWebTeam.Egms\EsccWebTeam.Egms.csproj">
+    <ProjectReference Include="..\..\Escc.Egms\EsccWebTeam.Egms.csproj">
       <Project>{78083DCB-B12F-4950-86C5-3A844D8604F3}</Project>
       <Name>EsccWebTeam.Egms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VS Projects\_Libraries for re-use\EsccWebTeam.HouseStyle\EsccWebTeam.HouseStyle.csproj">
+    <ProjectReference Include="..\..\Escc.HouseStyle\EsccWebTeam.HouseStyle.csproj">
       <Project>{1C429378-DBF2-4AF7-88AC-C059AA163682}</Project>
       <Name>EsccWebTeam.HouseStyle</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VS Projects\_Libraries for re-use\EsccWebTeam.NavigationControls\EsccWebTeam.NavigationControls.csproj">
+    <ProjectReference Include="..\..\Escc.NavigationControls\EsccWebTeam.NavigationControls.csproj">
       <Project>{0323F668-1723-44A1-8C94-F91DC59EF315}</Project>
       <Name>EsccWebTeam.NavigationControls</Name>
     </ProjectReference>

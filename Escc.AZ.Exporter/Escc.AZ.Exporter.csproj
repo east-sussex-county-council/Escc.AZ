@@ -126,15 +126,15 @@
       <Project>{0F8AA810-78EB-4A4D-A1EE-2D8AD11BB8A9}</Project>
       <Name>Escc.AZ</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VS Projects\_Libraries for re-use\EsccWebTeam.HouseStyle\EsccWebTeam.HouseStyle.csproj">
+    <ProjectReference Include="..\..\Escc.HouseStyle\EsccWebTeam.HouseStyle.csproj">
       <Project>{1C429378-DBF2-4AF7-88AC-C059AA163682}</Project>
       <Name>EsccWebTeam.HouseStyle</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VS Projects\_Standards\E-Government Metadata Standard %28E-GMS%29\EsccWebTeam.Egms\EsccWebTeam.Egms.csproj">
+    <ProjectReference Include="..\..\Escc.Egms\EsccWebTeam.Egms.csproj">
       <Project>{78083DCB-B12F-4950-86C5-3A844D8604F3}</Project>
       <Name>EsccWebTeam.Egms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VS Projects\_Standards\EsccWebTeam.Gdsc\EsccWebTeam.Gdsc.csproj">
+    <ProjectReference Include="..\..\Escc.Gdsc\EsccWebTeam.Gdsc.csproj">
       <Project>{A0024354-DD16-43E1-8574-176F8BA4F1CA}</Project>
       <Name>EsccWebTeam.Gdsc</Name>
     </ProjectReference>

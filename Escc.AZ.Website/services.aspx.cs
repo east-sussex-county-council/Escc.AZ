@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using eastsussexgovuk.webservices.TextXhtml.HouseStyle;
 using EsccWebTeam.Data.Web;
 using EsccWebTeam.EastSussexGovUK;
 using Microsoft.ApplicationBlocks.Data;
@@ -99,11 +98,11 @@ namespace Escc.AZ.Website
                             {
                                 if (missingServices == 1)
                                 {
-                                    p.Controls.Add(new LiteralControl(NumberFormatter.GetNumber(missingServices) + " service from another council was not shown. "));
+                                    p.Controls.Add(new LiteralControl(GetNumber(missingServices) + " service from another council was not shown. "));
                                 }
                                 else
                                 {
-                                    p.Controls.Add(new LiteralControl(NumberFormatter.GetNumber(missingServices) + " services from other councils were not shown. "));
+                                    p.Controls.Add(new LiteralControl(GetNumber(missingServices) + " services from other councils were not shown. "));
                                 }
                                 using (HtmlAnchor link = new HtmlAnchor())
                                 {
@@ -132,6 +131,40 @@ namespace Escc.AZ.Website
             catch (ArgumentException)
             {
                 EastSussexGovUKContext.HttpStatus400BadRequest(this.content);
+            }
+        }
+
+        /// <summary>
+        /// Gets text representing the number formatted according to house style
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        private static string GetNumber(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    return "Zero";
+                case 1:
+                    return "One";
+                case 2:
+                    return "Two";
+                case 3:
+                    return "Three";
+                case 4:
+                    return "Four";
+                case 5:
+                    return "Five";
+                case 6:
+                    return "Six";
+                case 7:
+                    return "Seven";
+                case 8:
+                    return "Eight";
+                case 9:
+                    return "Nine";
+                default:
+                    return number.ToString(CultureInfo.CurrentCulture);
             }
         }
 

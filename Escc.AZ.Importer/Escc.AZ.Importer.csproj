@@ -122,11 +122,11 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\..\..\VS Projects\_Standards\E-Government Metadata Standard %28E-GMS%29\EsccWebTeam.Egms\EsccWebTeam.Egms.csproj">
+    <ProjectReference Include="..\..\Escc.Egms\EsccWebTeam.Egms.csproj">
       <Project>{78083DCB-B12F-4950-86C5-3A844D8604F3}</Project>
       <Name>EsccWebTeam.Egms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VS Projects\_Standards\EsccWebTeam.Gdsc\EsccWebTeam.Gdsc.csproj">
+    <ProjectReference Include="..\..\Escc.Gdsc\EsccWebTeam.Gdsc.csproj">
       <Project>{A0024354-DD16-43E1-8574-176F8BA4F1CA}</Project>
       <Name>EsccWebTeam.Gdsc</Name>
     </ProjectReference>
