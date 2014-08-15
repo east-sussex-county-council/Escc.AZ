@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.Data;
 using System.Globalization;
 using eastsussexgovuk.webservices.EgmsWebMetadata;
-using EsccWebTeam.Gdsc;
+using Escc.AddressAndPersonalDetails;
 using Microsoft.ApplicationBlocks.ExceptionManagement;
 
 namespace Escc.AZ

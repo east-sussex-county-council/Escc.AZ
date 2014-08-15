@@ -40,6 +40,8 @@
     <AssemblyOriginatorKeyFile>S:\_Strong names\esccdev.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -89,6 +91,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Escc.AddressAndPersonalDetails">
+      <HintPath>..\..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Solution\packages\Escc.AddressAndPersonalDetails.1.0.0\lib\Escc.AddressAndPersonalDetails.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>\\eschdata\appdev$\_Reference DLLs\Microsoft Data Access Application Block 2.0\Release strong-named .NET 2.0\Microsoft.ApplicationBlocks.Data.dll</HintPath>
@@ -167,13 +172,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Escc.AddressAndPersonalDetails.Controls\Escc.AddressAndPersonalDetails.Controls.csproj">
+      <Project>{e706dcea-4607-45db-abde-186bc36a329f}</Project>
+      <Name>Escc.AddressAndPersonalDetails.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Escc.Data.Web\EsccWebTeam.Data.Web.csproj">
       <Project>{9C56D3DD-4952-4A1B-9AD6-907A1142872F}</Project>
       <Name>EsccWebTeam.Data.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Escc.HouseStyle\EsccWebTeam.HouseStyle.csproj">
-      <Project>{1C429378-DBF2-4AF7-88AC-C059AA163682}</Project>
-      <Name>EsccWebTeam.HouseStyle</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Escc.NavigationControls\EsccWebTeam.NavigationControls.csproj">
       <Project>{0323F668-1723-44A1-8C94-F91DC59EF315}</Project>
@@ -183,13 +188,12 @@
       <Project>{78083DCB-B12F-4950-86C5-3A844D8604F3}</Project>
       <Name>EsccWebTeam.Egms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Escc.Gdsc\EsccWebTeam.Gdsc.csproj">
-      <Project>{A0024354-DD16-43E1-8574-176F8BA4F1CA}</Project>
-      <Name>EsccWebTeam.Gdsc</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -198,4 +202,11 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
 </Project>
