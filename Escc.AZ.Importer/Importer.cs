@@ -10,7 +10,7 @@ using System.Net;
 using System.Xml;
 using System.Xml.Schema;
 using eastsussexgovuk.webservices.EgmsWebMetadata;
-using EsccWebTeam.Gdsc;
+using Escc.AddressAndPersonalDetails;
 using Microsoft.ApplicationBlocks.Data;
 using Microsoft.ApplicationBlocks.ExceptionManagement;
 

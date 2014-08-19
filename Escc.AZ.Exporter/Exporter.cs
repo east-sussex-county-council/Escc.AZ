@@ -11,7 +11,7 @@ using System.Xml;
 using System.Xml.Schema;
 using eastsussexgovuk.webservices.EgmsWebMetadata;
 using eastsussexgovuk.webservices.TextXhtml.HouseStyle;
-using EsccWebTeam.Gdsc;
+using Escc.AddressAndPersonalDetails;
 using Microsoft.ApplicationBlocks.Data;
 using Microsoft.ApplicationBlocks.ExceptionManagement;
 

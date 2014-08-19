@@ -53,6 +53,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Admin.Solution\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -103,6 +105,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Escc.AddressAndPersonalDetails">
+      <HintPath>..\..\..\Solution files\eastsussex.gov.uk solutions\EsccWebTeam.Website.Admin.Solution\packages\Escc.AddressAndPersonalDetails.1.0.0\lib\Escc.AddressAndPersonalDetails.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data">
       <HintPath>\\eschdata\appdev$\_Reference DLLs\Microsoft Data Access Application Block 2.0\Release strong-named .NET 2.0\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
@@ -125,10 +130,6 @@
     <ProjectReference Include="..\..\Escc.Egms\EsccWebTeam.Egms.csproj">
       <Project>{78083DCB-B12F-4950-86C5-3A844D8604F3}</Project>
       <Name>EsccWebTeam.Egms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Escc.Gdsc\EsccWebTeam.Gdsc.csproj">
-      <Project>{A0024354-DD16-43E1-8574-176F8BA4F1CA}</Project>
-      <Name>EsccWebTeam.Gdsc</Name>
     </ProjectReference>
     <ProjectReference Include="..\Escc.AZ\Escc.AZ.csproj">
       <Name>Escc.AZ</Name>
@@ -169,6 +170,7 @@
     <None Include="BS7666-v1-4.xsx">
       <DependentUpon>BS7666-v1-4.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -204,4 +206,11 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
 </Project>
