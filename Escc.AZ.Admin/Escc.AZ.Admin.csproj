@@ -156,6 +156,7 @@
     <Content Include="contact-1.js" />
     <Content Include="contact.aspx" />
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+    <Content Include="default.aspx" />
     <Content Include="heading-1.js" />
     <Content Include="heading.aspx" />
     <Content Include="headings-1.js" />
@@ -213,16 +214,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4291</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/managewebsite/atoz</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
