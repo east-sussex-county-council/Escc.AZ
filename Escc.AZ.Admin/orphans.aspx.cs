@@ -20,7 +20,7 @@ namespace Escc.AZ.Admin
             if (Request.QueryString["deleteservice"] != null)
             {
                 // get connection details for db
-                SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"]);
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString);
 
                 try
                 {
@@ -112,7 +112,7 @@ namespace Escc.AZ.Admin
         private static DataTable GetData()
         {
             // connect and get data
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"].ToString()))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
             {
                 return SqlHelper.ExecuteDataset(conn, CommandType.StoredProcedure, "usp_SelectOrphanedServicesForEdit").Tables[0];
             }

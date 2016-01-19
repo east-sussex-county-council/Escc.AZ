@@ -77,7 +77,7 @@ namespace Escc.AZ.Admin
             if (!String.IsNullOrEmpty(this.contactId.Value))
             {
                 // create disconnected connection details
-                SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"]);
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString);
 
                 try
                 {
@@ -223,7 +223,7 @@ namespace Escc.AZ.Admin
                 sqlParams[21].Value = this.addressUrlText.Value.Trim();
 
                 // prepare connection
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
                 {
 
                     // update the db

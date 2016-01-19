@@ -52,7 +52,7 @@ namespace Escc.AZ.Admin
                     // check whether it's a delete request
                     if (Request.QueryString["removeheading"] != null || Request.QueryString["deletecontact"] != null)
                     {
-                        using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]))
+                        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
                         {
 
                             // check whether it's a delete heading request
@@ -137,7 +137,7 @@ namespace Escc.AZ.Admin
         {
             // create container for data, and disconnected connection details
             DataTable[] tables = new DataTable[2];
-            SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"]);
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString);
 
             try
             {
@@ -613,7 +613,7 @@ namespace Escc.AZ.Admin
                 urlParams[3] = new SqlParameter("@urlDescription", SqlDbType.VarChar, 300);
 
                 // prepare connection
-                SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]);
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString);
 
                 // update the db
                 try
@@ -735,7 +735,7 @@ namespace Escc.AZ.Admin
             sqlParams[1].Value = 1;
 
             // update db
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
             {
                 SqlHelper.ExecuteNonQuery(conn, CommandType.StoredProcedure, "usp_UrlSort", sqlParams);
             }
@@ -756,7 +756,7 @@ namespace Escc.AZ.Admin
             sqlParams[1].Value = 0;
 
             // update db
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
             {
                 Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(conn, CommandType.StoredProcedure, "usp_UrlSort", sqlParams);
             }
@@ -775,7 +775,7 @@ namespace Escc.AZ.Admin
             sqlParams[0].Value = urlId;
 
             // update db
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
             {
                 SqlHelper.ExecuteNonQuery(conn, CommandType.StoredProcedure, "usp_DeleteUrl", sqlParams);
             }

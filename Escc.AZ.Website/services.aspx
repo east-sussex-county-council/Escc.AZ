@@ -1,4 +1,4 @@
-<%@ Page language="c#" Codebehind="Services.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.Services" EnableViewState="false" MasterPageFile="~/masterpages/EastSussexGovUK.master" %>
+<%@ Page language="c#" Codebehind="Services.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.Services" EnableViewState="false" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
 	<Metadata:MetadataControl id="headContent" runat="server"
 		LgtLType="A to Z"
@@ -26,7 +26,7 @@
         <EastSussexGovUK:Related runat="server">
             <PagesTemplate>
 		    <ul>
-			    <li><a href="/atoz/forms/default.aspx">A&#8211;Z of forms</a></li>
+			    <li><a href="<%= ResolveUrl("~/") %>forms/default.aspx">A&#8211;Z of forms</a></li>
 		    </ul>
             </PagesTemplate>
         </EastSussexGovUK:Related>

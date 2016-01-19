@@ -60,7 +60,7 @@ namespace Escc.AZ.Admin
             prms[0].Value = idBox.Value;
             prms[1].Value = box.Text;
 
-            SqlHelper.ExecuteNonQuery(ConfigurationManager.AppSettings["DbConnectionStringAZ"], CommandType.StoredProcedure, "usp_UrlUpdatePopularity", prms);
+            SqlHelper.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString, CommandType.StoredProcedure, "usp_UrlUpdatePopularity", prms);
 
         }
 
@@ -80,7 +80,7 @@ namespace Escc.AZ.Admin
         private void GetData()
         {
             // get data
-            DataTable data = SqlHelper.ExecuteDataset(ConfigurationManager.AppSettings["DbConnectionStringAZ"], CommandType.StoredProcedure, "usp_UrlSelectFormsForEdit").Tables[0];
+            DataTable data = SqlHelper.ExecuteDataset(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString, CommandType.StoredProcedure, "usp_UrlSelectFormsForEdit").Tables[0];
 
             this.formList.DataSource = data;
             this.formList.DataBind();

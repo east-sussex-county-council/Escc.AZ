@@ -1,4 +1,4 @@
-<%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.Headings" ValidateRequest="false" EnableViewState="false" MasterPageFile="~/masterpages/EastSussexGovUK.master"  %>
+<%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.Headings" ValidateRequest="false" EnableViewState="false"  %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
 	<Metadata:MetadataControl id="headContent" runat="server"
 		Title="A-Z of services: "
@@ -27,7 +27,7 @@
 
             <p><a href="#services" class="keyboard aural">Skip to services</a></p>
 	
-            <p>For a list of services you can apply for online or by post, see our <a href="/atoz/forms/">A&#8211;Z of forms</a>.</p>
+            <p>For a list of services you can apply for online or by post, see our <a href="<%= ResolveUrl("~/") %>forms/">A&#8211;Z of forms</a>.</p>
 	        <p>If you can't find what you want, try searching the whole site using the main search box at the top right of any page.</p>
 	        <p>For a summary of this information in standard format, large print, on audio tape or in other languages, please call us on 01273 481920 or email <a href="/contactus/emailus/email.aspx?n=Corporate Communications&amp;e=corporate.communications&amp;d=eastsussex.gov.uk">Corporate Communications</a>.</p>
             </div>
@@ -46,7 +46,7 @@
 	    <EastSussexGovUK:Related runat="server">
            <PagesTemplate>
                 <ul>
-			        <li><a href="/atoz/forms/default.aspx">A&#8211;Z of forms</a></li>
+			        <li><a href="<%= ResolveUrl("~/") %>forms/default.aspx">A&#8211;Z of forms</a></li>
 		        </ul>
            </PagesTemplate>
         </EastSussexGovUK:Related>

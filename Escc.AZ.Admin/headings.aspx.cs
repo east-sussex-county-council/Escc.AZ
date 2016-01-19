@@ -22,7 +22,7 @@ namespace Escc.AZ.Admin
             if (Request.QueryString["deleteheading"] != null)
             {
                 // get connection details for db
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"]))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
                 {
 
                     try
@@ -123,7 +123,7 @@ namespace Escc.AZ.Admin
         private DataTable GetHeadingData()
         {
             // prepare connection details
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"].ToString()))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
             {
                 // build parameter
                 SqlParameter[] sqlParams = new SqlParameter[1];

@@ -207,7 +207,7 @@ namespace Escc.AZ.Website
 
 
                 // connect and get data
-                SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"].ToString());
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString);
                 try
                 {
                     DataSet tables = SqlHelper.ExecuteDataset(conn, CommandType.StoredProcedure, "usp_SelectServicesForHeading", sqlParams);

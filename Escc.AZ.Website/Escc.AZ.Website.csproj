@@ -36,7 +36,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -118,6 +118,10 @@
       <HintPath>..\packages\Escc.ClientDependencyFramework.WebForms.1.0.0\lib\Escc.ClientDependencyFramework.WebForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Escc.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Escc.Net.1.0.1\lib\Escc.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Escc.Web.Metadata, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <HintPath>..\packages\Escc.Web.Metadata.1.0.0\lib\Escc.Web.Metadata.dll</HintPath>
       <Private>True</Private>
@@ -128,6 +132,10 @@
     </Reference>
     <Reference Include="Exceptionless.Models, Version=1.5.2121.0, Culture=neutral, PublicKeyToken=fc181f0a46f65747, processorArchitecture=MSIL">
       <HintPath>..\packages\Exceptionless.1.5.2121\lib\net45\Exceptionless.Models.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Exceptionless.Web, Version=1.5.2121.0, Culture=neutral, PublicKeyToken=fc181f0a46f65747, processorArchitecture=MSIL">
+      <HintPath>..\packages\Exceptionless.Web.1.5.2121\lib\net45\Exceptionless.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
@@ -141,6 +149,10 @@
     <Reference Include="Microsoft.ApplicationBlocks.ExceptionManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06fad7304560ae6f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>S:\_Reference DLLs\Microsoft Exception Management Application Block\Release strong-named .NET 2\Microsoft.ApplicationBlocks.ExceptionManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
@@ -225,7 +237,8 @@
     <Compile Include="services.aspx.designer.cs">
       <DependentUpon>services.aspx</DependentUpon>
     </Compile>
-    <Content Include="css\atoz.css" />
+    <None Include="css\atoz.css" />
+    <Content Include="css\min\atoz.css" />
     <Content Include="default.aspx">
       <SubType>Form</SubType>
     </Content>
@@ -236,7 +249,8 @@
       <SubType>Form</SubType>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="js\atoz.js" />
+    <None Include="js\atoz.js" />
+    <Content Include="js\min\atoz.js" />
     <Content Include="services.aspx">
       <SubType>Form</SubType>
     </Content>
@@ -250,18 +264,15 @@
       <DependentUpon>services.aspx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="css\min\" />
-    <Folder Include="js\min\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Web.example.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="YUICompressor.msbuild">
+    <None Include="YUICompressor.msbuild">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

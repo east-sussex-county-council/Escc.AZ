@@ -117,7 +117,7 @@ namespace Escc.AZ.Website
         private DataTable GetHeadingData()
         {
             // set up connection details
-            SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"].ToString());
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString);
 
             try
             {
@@ -161,7 +161,7 @@ namespace Escc.AZ.Website
         private DataTable GetSearchData()
         {
             // set up connection details
-            SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"].ToString());
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString);
 
             try
             {
@@ -366,7 +366,7 @@ namespace Escc.AZ.Website
         /// <returns>Completed HyperLink control</returns>
         private HyperLink BuildHeadingLink(AZHeading heading, bool useRedirectTitle)
         {
-            StringBuilder url = new StringBuilder("/atoz/heading");
+            StringBuilder url = new StringBuilder(ResolveUrl("~/")).Append("heading");
             url.Append(heading.Id.ToString(CultureInfo.InvariantCulture));
             url.Append(".aspx?forms="); // forms param obsolete but makes it easier to build up querystring
             if (this.context.EsccSelected) url.Append("&acc=1");

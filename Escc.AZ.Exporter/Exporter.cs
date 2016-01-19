@@ -41,7 +41,7 @@ namespace Escc.AZ.Exporter
 
                 Console.WriteLine("Connecting to database");
 
-                SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"]);
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString);
                 DataTable data = SqlHelper.ExecuteDataset(conn, CommandType.StoredProcedure, "usp_SelectServicesForExport").Tables[0];
                 var headings = AZObjectBuilder.BuildHeadingsFromRawData(data);
 

@@ -66,7 +66,7 @@ namespace Escc.AZ.Admin
                     // check whether it's a delete request
                     if (Request.QueryString["removerelated"] != null || Request.QueryString["removeservice"] != null)
                     {
-                        SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]);
+                        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString);
 
                         try
                         {
@@ -146,7 +146,7 @@ namespace Escc.AZ.Admin
         private DataTable[] GetData()
         {
             // create container for data, and disconnected connection details
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"]))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
             {
                 DataTable[] tables = new DataTable[3];
 
@@ -589,7 +589,7 @@ namespace Escc.AZ.Admin
                 string[] esccServiceIds = this.sortEsccServices.Value.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
 
                 // prepare connection
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
                 {
                     conn.Open();
                     SqlTransaction t = conn.BeginTransaction();

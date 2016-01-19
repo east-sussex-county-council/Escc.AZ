@@ -33,7 +33,7 @@ namespace Escc.AZ.Admin
                         nsManager.AddNamespace("ns", ipsv.DocumentElement.NamespaceURI);
                         XmlNodeList found = ipsv.DocumentElement.SelectNodes("/ns:ControlledList/ns:Item[@Preferred='true']", nsManager);
 
-                        SqlConnection conn = new SqlConnection(ConfigurationSettings.AppSettings["DBConnectionStringAZ"]);
+                        SqlConnection conn = new SqlConnection(ConfigurationSettings.ConnectionStrings["DBConnectionStringAZ"].ConnectionString);
                         conn.Open();
                         foreach (XmlNode node in found)
                         {

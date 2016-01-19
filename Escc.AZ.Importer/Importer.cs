@@ -236,7 +236,7 @@ namespace Escc.AZ.Importer
                 lgclIpsvMapping = EsdMapping.GetMapping("LgclIpsvMapping");
 
                 // connect to db
-                SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DbConnectionStringAZ"]);
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString);
                 SqlTransaction t = null;
 
                 try

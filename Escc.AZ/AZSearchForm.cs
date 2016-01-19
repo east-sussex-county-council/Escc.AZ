@@ -34,7 +34,7 @@ namespace Escc.AZ
             {
                 try
                 {
-                    StringBuilder url = new StringBuilder("/atoz/default.aspx?azq=");
+                    StringBuilder url = new StringBuilder("default.aspx?azq=");
                     url.Append(this.Context.Server.UrlEncode(request.Form["ctl00$content$azq"].Trim().ToString()));
                     if (this.azContext.PartnersEnabled)
                     {
@@ -54,7 +54,7 @@ namespace Escc.AZ
                 catch (NullReferenceException)
                 {
                     // redirect and publish exception if fields fiddled
-                    response.Redirect("/atoz/default.aspx");
+                    response.Redirect("default.aspx");
                     throw;
                 }
             }

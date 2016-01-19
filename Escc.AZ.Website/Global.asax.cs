@@ -1,5 +1,6 @@
 ﻿using System;
 using eastsussexgovuk.webservices.TextXhtml.HouseStyle;
+using System.Web;
 
 namespace Escc.AZ.Website
 {
@@ -18,7 +19,7 @@ namespace Escc.AZ.Website
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            UriFormatter.ConvertToHiddenQueryString("/atoz/heading", "/atoz/services.aspx?heading=");
+            UriFormatter.ConvertToHiddenQueryString(HttpContext.Current.Request.ApplicationPath + "heading", HttpContext.Current.Request.ApplicationPath + "services.aspx?heading=");
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

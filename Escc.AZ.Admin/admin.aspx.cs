@@ -33,7 +33,7 @@ namespace Escc.AZ.Admin
         private static void UpdateIpsvHeadings()
         {
             // Get all headings out of the database and into a collection
-            SqlDataReader dr = SqlHelper.ExecuteReader(ConfigurationManager.AppSettings["DBConnectionStringAZ"], "usp_SelectAllHeadings");
+            SqlDataReader dr = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString, "usp_SelectAllHeadings");
             IList<AZHeading> hc = new List<AZHeading>();
 
             try
@@ -61,7 +61,7 @@ namespace Escc.AZ.Admin
             }
 
             // Update each heading in the database
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
             {
                 SqlParameter p1 = new SqlParameter("@headingId", SqlDbType.Int, 4);
                 SqlParameter p2 = new SqlParameter("@ipsv", SqlDbType.Bit);
@@ -84,7 +84,7 @@ namespace Escc.AZ.Admin
         private static void UpdateIpsvServices()
         {
             // Get all services out of the database and into a collection
-            SqlDataReader dr = SqlHelper.ExecuteReader(ConfigurationManager.AppSettings["DBConnectionStringAZ"], "usp_SelectAllServices");
+            SqlDataReader dr = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString, "usp_SelectAllServices");
             AZHeading services = new AZHeading();
 
             try
@@ -117,7 +117,7 @@ namespace Escc.AZ.Admin
             }
 
             // Update each service in the database
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.AppSettings["DBConnectionStringAZ"]))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnectionStringAZ"].ConnectionString))
             {
                 SqlParameter p1 = new SqlParameter("@serviceId", SqlDbType.Int, 4);
                 SqlParameter p2 = new SqlParameter("@ipsv", SqlDbType.Bit);

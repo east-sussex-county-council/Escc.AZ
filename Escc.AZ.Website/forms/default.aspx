@@ -57,7 +57,7 @@
         <EastSussexGovUK:Related runat="server">
             <PagesTemplate>
 		        <ul>
-			        <li><a href="/atoz/default.aspx">A&#8211;Z of services</a></li>
+			        <li><a href="<%= ResolveUrl("~/") %>default.aspx">A&#8211;Z of services</a></li>
 		        </ul>
             </PagesTemplate>
         </EastSussexGovUK:Related>

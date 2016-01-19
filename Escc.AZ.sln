@@ -29,6 +29,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsccWebTeam.EastSussexGovUK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escc.Elibrary", "..\Escc.Elibrary\Escc.Elibrary.csproj", "{3D2240E0-D165-4C52-A97B-730542975D3A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF5441F8-8F31-481B-B4A7-62A51D07E846}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		app-setup-dev.cmd = app-setup-dev.cmd
+		app-setup-dev.ps1 = app-setup-dev.ps1
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
