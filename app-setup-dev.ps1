@@ -42,8 +42,6 @@ DownloadProjectIfMissing $parentFolderOfThisScript "Escc.NavigationControls"
 DownloadProjectIfMissing $parentFolderOfThisScript "Escc.Data.Web"
 DownloadProjectIfMissing $parentFolderOfThisScript "Escc.HouseStyle"
 DownloadProjectIfMissing $parentFolderOfThisScript "Escc.Data.ActiveDirectory"
-DownloadProjectIfMissing $parentFolderOfThisScript "Escc.Cms"
-DownloadProjectIfMissing $parentFolderOfThisScript "Escc.Elibrary"
 
 EnableDotNet40InIIS
 
