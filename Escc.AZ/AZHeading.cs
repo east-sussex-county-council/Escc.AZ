@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using eastsussexgovuk.webservices.EgmsWebMetadata;
+using Escc.Web.Metadata;
 
 namespace Escc.AZ
 {

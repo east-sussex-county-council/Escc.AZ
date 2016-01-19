@@ -1,15 +1,15 @@
 <%@ Page language="c#" Codebehind="heading.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Admin.heading" EnableViewState="false" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="metadata">
-    <Egms:MetadataControl id="headContent" runat="server"
+    <Metadata:MetadataControl id="headContent" runat="server"
 		Title="Manage A-Z heading"
 		DateCreated="2004-05-24"
 		IpsvPreferredTerms="Local government"
 	 />
-    <Egms:Css runat="server" Files="FormsSmall;AtoZManage" />
+    <ClientDependency:Css runat="server" Files="FormsSmall;AtoZManage" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <Egms:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
-        <Egms:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
@@ -37,7 +37,7 @@
 		        <asp:label runat="server" AssociatedControlID="ipsvTerms" cssclass="formLabel"><acronym title="Integrated Public Sector Vocabulary">IPSV</acronym> preferred terms</asp:label>
 		        <asp:textbox runat="server" id="ipsvTerms" cssclass="formControl" />
 		        <asp:requiredfieldvalidator id="ipsvRequiredValidator" runat="server" display="None" enableclientscript="False" controltovalidate="ipsvTerms" errormessage="Please add IPSV preferred terms"></asp:requiredfieldvalidator>
-		        <Egms:EsdTermValidator id="ipsvValidator" runat="server" ControlledListName="IPSV" MultipleTerms="true" controltovalidate="ipsvTerms" />
+		        <Metadata:EsdTermValidator id="ipsvValidator" runat="server" ControlledListName="IPSV" MultipleTerms="true" controltovalidate="ipsvTerms" />
 		        </div>
             </div>
 	        <h2>Redirect this heading</h2>

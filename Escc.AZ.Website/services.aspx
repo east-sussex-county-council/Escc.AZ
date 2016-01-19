@@ -1,11 +1,11 @@
 <%@ Page language="c#" Codebehind="Services.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.Services" EnableViewState="false" MasterPageFile="~/masterpages/EastSussexGovUK.master" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
-	<Egms:MetadataControl id="headContent" runat="server"
+	<Metadata:MetadataControl id="headContent" runat="server"
 		LgtLType="A to Z"
 		DateCreated="2004-08-05"
 		IpsvPreferredTerms="Local government"
 	 />
-    <Egms:Css Files="AtoZ" runat="server" />
+    <ClientDependency:Css Files="AtoZ" runat="server" />
 </asp:Content>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="atoz" />

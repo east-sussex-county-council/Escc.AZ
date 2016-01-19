@@ -1,6 +1,6 @@
 <%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.forms.Forms" EnableViewState="false" MasterPageFile="~/masterpages/EastSussexGovUK.master" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
-	<Egms:MetadataControl id="headContent" runat="server"
+	<Metadata:MetadataControl id="headContent" runat="server"
 		Title="A-Z of forms: {0}"
         Keywords="a-z, index, search, contents, find, forms, application, application form"
 		LgtLType="A to Z"
@@ -8,7 +8,7 @@
 		DateCreated="2005-11-03"
 		Description="Find forms for services provided by East Sussex County Council"
 		 />
-    <Egms:Css runat="server" Files="AtoZ" />
+    <ClientDependency:Css runat="server" Files="AtoZ" />
 </asp:Content>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="atoz" />

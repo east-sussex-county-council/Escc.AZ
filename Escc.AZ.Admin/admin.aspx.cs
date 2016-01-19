@@ -5,7 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
-using eastsussexgovuk.webservices.EgmsWebMetadata;
+using Escc.Web.Metadata;
 using Microsoft.ApplicationBlocks.Data;
 
 namespace Escc.AZ.Admin

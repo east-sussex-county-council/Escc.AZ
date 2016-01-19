@@ -19,7 +19,7 @@ namespace Escc.AZ.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::EsccWebTeam.Egms.MetadataControl headContent;
+        protected global::Escc.Web.Metadata.MetadataControl headContent;
         
         /// <summary>
         /// tasks control.
@@ -37,6 +37,6 @@ namespace Escc.AZ.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::eastsussexgovuk.webservices.FormControls.EsccButton submit;
+        protected global::Escc.FormControls.WebForms.EsccButton submit;
     }
 }

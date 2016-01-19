@@ -9,8 +9,8 @@ using System.Text;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using eastsussexgovuk.webservices.EgmsWebMetadata;
-using eastsussexgovuk.webservices.FormControls;
+using Escc.FormControls.WebForms;
+using Escc.Web.Metadata;
 using Microsoft.ApplicationBlocks.Data;
 using Microsoft.ApplicationBlocks.ExceptionManagement;
 

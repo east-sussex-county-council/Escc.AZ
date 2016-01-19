@@ -1,15 +1,15 @@
 <%@ Page language="c#" Codebehind="popular.aspx.cs" AutoEventWireup="false" Inherits="Escc.AZ.Admin.popular" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="metadata">
-    <Egms:MetadataControl id="headContent" runat="server" 
+    <Metadata:MetadataControl id="headContent" runat="server" 
 		Title="Manage popular forms" 
 		DateCreated="2005-11-04"
 		IpsvPreferredTerms="Local government"
 		/>
-    <Egms:Css runat="server" Files="FormsSmall" />
+    <ClientDependency:Css runat="server" Files="FormsSmall" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <Egms:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
-        <Egms:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 

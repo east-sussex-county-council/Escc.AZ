@@ -127,10 +127,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\..\Escc.Egms\EsccWebTeam.Egms.csproj">
-      <Project>{78083DCB-B12F-4950-86C5-3A844D8604F3}</Project>
-      <Name>EsccWebTeam.Egms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Escc.AZ\Escc.AZ.csproj">
       <Name>Escc.AZ</Name>
       <Project>{0F8AA810-78EB-4A4D-A1EE-2D8AD11BB8A9}</Project>
@@ -155,9 +151,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CouncilServices.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="CouncilServices.cs" />
     <Compile Include="Importer.cs">
       <SubType>Code</SubType>
     </Compile>

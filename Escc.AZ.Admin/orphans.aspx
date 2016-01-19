@@ -1,7 +1,7 @@
 <%@ Page language="c#" Codebehind="orphans.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Admin.orphans" EnableViewState="false" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="metadata">
-	<Egms:MetadataControl id="headContent" runat="server" 
+	<Metadata:MetadataControl id="headContent" runat="server" 
 		Title="Manage A-Z services" 
 		DateCreated="2004-05-24"
 		IpsvPreferredTerms="Local government"

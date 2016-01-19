@@ -1,15 +1,15 @@
 ﻿<%@ Page Language="C#" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="metadata">
-	<Egms:MetadataControl id="headcontent" runat="server" 
+	<Metadata:MetadataControl id="headcontent" runat="server" 
 		title="Manage A-Z of council services"
 		IpsvPreferredTerms="Internet"
 		DateCreated="2011-04-15"
 		/>
-    <Egms:Css runat="server" Files="LandingSmall" />
+    <ClientDependency:Css runat="server" Files="LandingSmall" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <Egms:Css runat="server" Files="LandingMedium" MediaConfiguration="Medium" />
-        <Egms:Css runat="server" Files="LandingLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="LandingMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="LandingLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
@@ -58,7 +58,8 @@
         
         
     </div>
-    </div>
+    </div>
+
 
 </section>
 </div>

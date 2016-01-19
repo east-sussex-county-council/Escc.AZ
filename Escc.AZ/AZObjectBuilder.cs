@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 using System.Globalization;
-using eastsussexgovuk.webservices.EgmsWebMetadata;
 using Escc.AddressAndPersonalDetails;
+using Escc.Web.Metadata;
 using Microsoft.ApplicationBlocks.ExceptionManagement;
 
 namespace Escc.AZ

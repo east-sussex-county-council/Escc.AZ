@@ -1,12 +1,12 @@
 <%@ Page language="c#" Codebehind="headings.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Admin.headings" EnableViewState="false" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="metadata">
-	<Egms:MetadataControl id="headContent" runat="server" 
+	<Metadata:MetadataControl id="headContent" runat="server" 
 		Title="Manage A-Z headings"
 		DateCreated="2004-05-24"
 		IpsvPreferredTerms="Local government"
 		 />
-    <Egms:Css runat="server" Files="AtozManage" />
+    <ClientDependency:Css runat="server" Files="AtozManage" />
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="content">

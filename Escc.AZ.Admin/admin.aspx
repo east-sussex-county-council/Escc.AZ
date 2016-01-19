@@ -1,15 +1,15 @@
 <%@ Page language="c#" Codebehind="admin.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Admin.admin" EnableViewState="false" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="metadata">
-	<Egms:MetadataControl id="headContent" runat="server"
+	<Metadata:MetadataControl id="headContent" runat="server"
 		title="A-Z administration tasks"
 		datecreated="2006-06-15"
 		ipsvpreferredterms="Local government"
 	 />
-    <Egms:Css runat="server" Files="FormsSmall" />
+    <ClientDependency:Css runat="server" Files="FormsSmall" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <Egms:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
-        <Egms:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer></asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="content">

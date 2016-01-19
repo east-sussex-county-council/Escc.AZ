@@ -1,7 +1,6 @@
 <%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.Headings" ValidateRequest="false" EnableViewState="false" MasterPageFile="~/masterpages/EastSussexGovUK.master"  %>
-<%@ Register TagPrefix="az" Namespace="Escc.AZ" Assembly="Escc.AZ" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
-	<Egms:MetadataControl id="headContent" runat="server"
+	<Metadata:MetadataControl id="headContent" runat="server"
 		Title="A-Z of services: "
 		Keywords="a-z, index, search, contents, find"
 		LgtLType="A to Z"
@@ -10,11 +9,11 @@
 		Description="Find services provided by the county, district and borough councils in East Sussex."
 		 />
     <meta name="robots" content="noindex, follow" />
-    <Egms:Css Files="AtoZ;FormsSmall" runat="server" />
-    <Egms:Script runat="server" Files="AtoZ" MergeWithSimilar="false" ID="azScript" />
+    <ClientDependency:Css Files="AtoZ;FormsSmall" runat="server" />
+    <ClientDependency:Script runat="server" Files="AtoZ" MergeWithSimilar="false" ID="azScript" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <Egms:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
-        <Egms:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 

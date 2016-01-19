@@ -19,7 +19,7 @@ namespace Escc.AZ.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::EsccWebTeam.Egms.MetadataControl headContent;
+        protected global::Escc.Web.Metadata.MetadataControl headContent;
         
         /// <summary>
         /// azBox control.
