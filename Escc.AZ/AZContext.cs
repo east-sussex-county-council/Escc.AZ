@@ -28,7 +28,7 @@ namespace Escc.AZ
         public AZContext()
         {
             // determine the current context based on the url
-            this.mode = (HttpContext.Current.Request.Path.IndexOf("managewebsite", StringComparison.OrdinalIgnoreCase) > -1) ? AZMode.Edit : AZMode.Published;
+            this.mode = (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["Escc.AZ.AzMode"]) && ConfigurationManager.AppSettings["Escc.AZ.AzMode"].ToUpperInvariant() == "EDIT") ? AZMode.Edit : AZMode.Published;
 
             // check which councils (if any) have been selected in the search form
             CheckWhichCouncilsAreSelected();
