@@ -9,9 +9,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using Escc.Data.Ado;
 using EsccWebTeam.Data.Web;
 using EsccWebTeam.HouseStyle;
-using Microsoft.ApplicationBlocks.Data;
 
 namespace Escc.AZ.Website
 {
@@ -145,7 +145,7 @@ namespace Escc.AZ.Website
                 sqlParams[6].Value = this.context.WealdenSelected;
 
                 // connect and get data
-                return SqlHelper.ExecuteDataset(conn, CommandType.StoredProcedure, "usp_SelectHeadingsByIndex", sqlParams).Tables[0];
+                return EsccSqlHelper.ExecuteDatatable(conn, CommandType.StoredProcedure, "usp_SelectHeadingsByIndex", sqlParams);
             }
             finally
             {
@@ -189,7 +189,7 @@ namespace Escc.AZ.Website
                 sqlParams[6].Value = this.context.WealdenSelected;
 
                 // connect and get data
-                return SqlHelper.ExecuteDataset(conn, CommandType.StoredProcedure, "usp_SelectHeadingsBySearch", sqlParams).Tables[0];
+                return EsccSqlHelper.ExecuteDatatable(conn, CommandType.StoredProcedure, "usp_SelectHeadingsBySearch", sqlParams);
             }
             finally
             {

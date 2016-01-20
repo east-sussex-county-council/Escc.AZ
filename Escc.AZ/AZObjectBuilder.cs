@@ -6,7 +6,7 @@ using System.Data;
 using System.Globalization;
 using Escc.AddressAndPersonalDetails;
 using Escc.Web.Metadata;
-using Microsoft.ApplicationBlocks.ExceptionManagement;
+using Exceptionless;
 
 namespace Escc.AZ
 {
@@ -66,13 +66,12 @@ namespace Escc.AZ
                     catch (UriFormatException ex)
                     {
                         // publish exception with details of URL, then carry on
-                        NameValueCollection extraInfo = new NameValueCollection(3);
-                        extraInfo["Service"] = currentService.Service;
-                        extraInfo["Authority"] = currentService.Authority.ToString();
-                        extraInfo["UrlId"] = row["ServiceUrlId"].ToString();
-                        extraInfo["Url"] = row["Url"].ToString();
+                        ex.Data.Add("Service", currentService.Service);
+                        ex.Data.Add("Authority", currentService.Authority.ToString());
+                        ex.Data.Add("UrlId", row["ServiceUrlId"].ToString());
+                        ex.Data.Add("Url", row["Url"].ToString());
 
-                        ExceptionManager.Publish(ex, extraInfo);
+                        ex.ToExceptionless().Submit();
 
                     }
 
@@ -190,14 +189,13 @@ namespace Escc.AZ
                             catch (UriFormatException ex)
                             {
                                 // publish exception with details of URL, then carry on
-                                NameValueCollection extraInfo = new NameValueCollection(3);
-                                extraInfo["ServiceId"] = serviceId.ToString(CultureInfo.CurrentCulture);
-                                extraInfo["Service"] = services[serviceIndex].Service;
-                                extraInfo["Authority"] = services[serviceIndex].Authority.ToString();
-                                extraInfo["UrlId"] = row["ServiceUrlId"].ToString();
-                                extraInfo["Url"] = row["Url"].ToString();
+                                ex.Data.Add("ServiceId", serviceId.ToString(CultureInfo.CurrentCulture));
+                                ex.Data.Add("Service", services[serviceIndex].Service);
+                                ex.Data.Add("Authority", services[serviceIndex].Authority.ToString());
+                                ex.Data.Add("UrlId", row["ServiceUrlId"].ToString());
+                                ex.Data.Add("Url", row["Url"].ToString());
 
-                                ExceptionManager.Publish(ex, extraInfo);
+                                ex.ToExceptionless().Submit();
                             }
                             urlsDone.Add(row["ServiceUrlId"]);
                         }

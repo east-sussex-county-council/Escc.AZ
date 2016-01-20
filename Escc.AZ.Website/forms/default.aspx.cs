@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Web.UI;
-using Microsoft.ApplicationBlocks.Data;
+using Escc.Data.Ado;
 
 namespace Escc.AZ.Website.forms
 {
@@ -33,7 +33,7 @@ namespace Escc.AZ.Website.forms
             }
             this.headContent.Title = String.Format(CultureInfo.CurrentCulture, this.headContent.Title, indexChars.Value.ToString().ToUpper(CultureInfo.CurrentCulture));
 
-            DataTable data = SqlHelper.ExecuteDataset(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString, CommandType.StoredProcedure, "usp_UrlSelectForms", indexChars).Tables[0];
+            DataTable data = EsccSqlHelper.ExecuteDatatable(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString, CommandType.StoredProcedure, "usp_UrlSelectForms", indexChars);
 
             if (data.Rows.Count > 0)
             {

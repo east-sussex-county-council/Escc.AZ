@@ -5,10 +5,10 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using Escc.Data.Ado;
 using EsccWebTeam.Data.Web;
 using EsccWebTeam.EastSussexGovUK;
-using Microsoft.ApplicationBlocks.Data;
-using Microsoft.ApplicationBlocks.ExceptionManagement;
+using Exceptionless;
 
 namespace Escc.AZ.Website
 {
@@ -68,7 +68,7 @@ namespace Escc.AZ.Website
                             {
                                 // If this throws an exception stop immediately. This query string parameter should only ever be requested by our link to 
                                 // the Technorati microformats parser, so the link should always be valid and if we return a blank page only the parser should see it.
-                                ExceptionManager.Publish(ex);
+                                ex.ToExceptionless().Submit();
                                 Response.End();
                             }
                         }
@@ -210,9 +210,9 @@ namespace Escc.AZ.Website
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString);
                 try
                 {
-                    DataSet tables = SqlHelper.ExecuteDataset(conn, CommandType.StoredProcedure, "usp_SelectServicesForHeading", sqlParams);
+                    var tables = EsccSqlHelper.ExecuteDatatable(conn, CommandType.StoredProcedure, "usp_SelectServicesForHeading", sqlParams);
                     this.totalServices = Convert.ToInt32(sqlParams[7].Value, CultureInfo.CurrentCulture);
-                    return tables.Tables[0];
+                    return tables;
                 }
                 finally
                 {

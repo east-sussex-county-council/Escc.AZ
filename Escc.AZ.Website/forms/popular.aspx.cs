@@ -1,7 +1,7 @@
 using System.Configuration;
 using System.Data;
 using System.Web.UI;
-using Microsoft.ApplicationBlocks.Data;
+using Escc.Data.Ado;
 
 namespace Escc.AZ.Website.forms
 {
@@ -14,7 +14,7 @@ namespace Escc.AZ.Website.forms
         protected void Page_Load(object sender, System.EventArgs e)
         {
             // get data
-            DataTable data = SqlHelper.ExecuteDataset(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString, CommandType.StoredProcedure, "usp_UrlSelectPopularForms").Tables[0];
+            DataTable data = EsccSqlHelper.ExecuteDatatable(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString, CommandType.StoredProcedure, "usp_UrlSelectPopularForms");
 
             this.formList.DataSource = data.DefaultView;
             this.formList.DataBind();
