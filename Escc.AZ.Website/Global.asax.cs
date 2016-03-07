@@ -19,7 +19,8 @@ namespace Escc.AZ.Website
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            ConvertToHiddenQueryString(HttpContext.Current.Request.ApplicationPath + "/heading", HttpContext.Current.Request.ApplicationPath + "/services.aspx?heading=");
+            var baseUrl = VirtualPathUtility.AppendTrailingSlash(HttpContext.Current.Request.ApplicationPath);
+            ConvertToHiddenQueryString(baseUrl + "heading", baseUrl + "services.aspx?heading=");
         }
 
         /// <summary>
