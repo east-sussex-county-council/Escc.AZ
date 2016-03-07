@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using Escc.FormControls.WebForms;
 using Escc.FormControls.WebForms.Validators;
 using Escc.Web.Metadata;
+using EsccWebTeam.EastSussexGovUK;
 using Microsoft.ApplicationBlocks.Data;
 
 namespace Escc.AZ.Admin
@@ -262,9 +263,10 @@ namespace Escc.AZ.Admin
             if (currentService != null)
             {
                 // write out contacts
-                using (AZContactGrid contactGrid = new AZContactGrid(currentService.Contacts, this.azContext))
+                using (var contactGrid = new AZContactGrid(currentService.Contacts, this.azContext))
                 {
                     this.contacts.Controls.Clear();
+                    contactGrid.EmailAddressTransformer = new WebsiteFormEmailAddressTransformer(Request.Url);
                     this.contacts.Controls.Add(contactGrid);
                 }
 

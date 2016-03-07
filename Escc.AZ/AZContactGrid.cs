@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Web;
 using System.Web.UI.HtmlControls;
 using Escc.AddressAndPersonalDetails.Controls;
 
@@ -36,6 +37,14 @@ namespace Escc.AZ
         }
 
         /// <summary>
+        /// Gets or sets a transformer which reformats email addresses when they are linked
+        /// </summary>
+        /// <value>
+        /// The email address transformer.
+        /// </value>
+        public IEmailAddressTransformer EmailAddressTransformer { get; set; }
+
+        /// <summary>
         /// Override create child controls to build the display of the contacts, then write it to the page
         /// </summary>
         protected override void CreateChildControls()
@@ -56,7 +65,7 @@ namespace Escc.AZ
                             info.Fax = contact.FaxText;
                             info.EmailAddress = contact.Email;
                             info.EmailText = contact.EmailText;
-                            info.UseEmailForm = true;
+                            info.EmailAddressTransformer = EmailAddressTransformer;
 
                             if (contact.AddressUrl != null)
                             {

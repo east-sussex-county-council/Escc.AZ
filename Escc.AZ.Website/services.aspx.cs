@@ -309,7 +309,9 @@ namespace Escc.AZ.Website
                         contacth3.InnerText = "Contacts";
                         div.Controls.Add(contacth3);
                     }
-                    div.Controls.Add(new AZContactGrid(service.Contacts));
+                    var grid = new AZContactGrid(service.Contacts);
+                    grid.EmailAddressTransformer = new WebsiteFormEmailAddressTransformer(Request.Url);
+                    div.Controls.Add(grid);
                 }
 
                 // display urls, if present
