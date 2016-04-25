@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using Escc.Data.Ado;
 using EsccWebTeam.Data.Web;
-using EsccWebTeam.HouseStyle;
+using Humanizer;
 
 namespace Escc.AZ.Website
 {
@@ -106,7 +106,7 @@ namespace Escc.AZ.Website
             }
 
             this.criteria.InnerText += criteriaText.ToString();
-            this.headContent.Title += Case.FirstToUpper(criteriaText.ToString());
+            this.headContent.Title += criteriaText.ToString().Transform(To.SentenceCase);
         }
 
 
