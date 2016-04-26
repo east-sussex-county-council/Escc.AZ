@@ -5,8 +5,8 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.UI.HtmlControls;
 using EsccWebTeam.NavigationControls;
+using Exceptionless;
 using Microsoft.ApplicationBlocks.Data;
-using Microsoft.ApplicationBlocks.ExceptionManagement;
 
 namespace Escc.AZ.Admin
 {
@@ -37,7 +37,7 @@ namespace Escc.AZ.Admin
                     catch (FormatException ex)
                     {
                         // if querystring fiddled, just get rid of the querystring
-                        ExceptionManager.Publish(ex);
+                        ex.ToExceptionless().Submit();
                         Response.Redirect(Request.Path);
                     }
                 }

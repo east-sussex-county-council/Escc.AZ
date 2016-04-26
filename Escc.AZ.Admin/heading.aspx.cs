@@ -11,8 +11,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using Escc.FormControls.WebForms;
 using Escc.Web.Metadata;
+using Exceptionless;
 using Microsoft.ApplicationBlocks.Data;
-using Microsoft.ApplicationBlocks.ExceptionManagement;
 
 namespace Escc.AZ.Admin
 {
@@ -53,7 +53,7 @@ namespace Escc.AZ.Admin
                 catch (FormatException ex)
                 {
                     // just redirect to default page if querystring is bad
-                    ExceptionManager.Publish(ex);
+                    ex.ToExceptionless().Submit();
                     Response.Redirect("default.aspx");
                     Response.End();
                 }
