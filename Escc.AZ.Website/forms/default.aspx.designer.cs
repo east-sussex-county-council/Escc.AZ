@@ -28,7 +28,7 @@ namespace Escc.AZ.Website.forms {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::EsccWebTeam.NavigationControls.AZNavigation navigation;
+        protected global::Escc.NavigationControls.WebForms.AZNavigation navigation;
         
         /// <summary>
         /// formList control.

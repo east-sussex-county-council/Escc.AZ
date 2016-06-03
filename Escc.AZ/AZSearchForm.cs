@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using EsccWebTeam.NavigationControls;
+using Escc.NavigationControls.WebForms;
 
 namespace Escc.AZ
 {

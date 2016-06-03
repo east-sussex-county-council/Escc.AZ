@@ -38,7 +38,6 @@ $projectName = "Escc.AZ.Website"
 $adminProject = "Escc.AZ.Admin"
 
 DownloadProjectIfMissing $parentFolderOfThisScript "Escc.EastSussexGovUK"
-DownloadProjectIfMissing $parentFolderOfThisScript "Escc.NavigationControls"
 DownloadProjectIfMissing $parentFolderOfThisScript "Escc.Data.Web"
 
 EnableDotNet40InIIS

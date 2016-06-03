@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.UI.HtmlControls;
-using EsccWebTeam.NavigationControls;
+using Escc.NavigationControls.WebForms;
 using Microsoft.ApplicationBlocks.Data;
 
 namespace Escc.AZ.Admin
