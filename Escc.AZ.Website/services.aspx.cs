@@ -8,6 +8,7 @@ using System.Web.UI.HtmlControls;
 using Escc.Data.Ado;
 using EsccWebTeam.Data.Web;
 using EsccWebTeam.EastSussexGovUK;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Exceptionless;
 
 namespace Escc.AZ.Website
@@ -24,6 +25,12 @@ namespace Escc.AZ.Website
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
+
             Http.CacheDaily(5, 0);
 
             this.context = AZContext.Current;
@@ -37,7 +44,7 @@ namespace Escc.AZ.Website
                 {
                     using (HtmlGenericControl tContent = new HtmlGenericControl("div"))
                     {
-                        tContent.Attributes["class"] = "text";
+                        tContent.Attributes["class"] = "content text-content";
                         this.content.Controls.Add(tContent);
 
                         // convert into AZHeading object - only one will have been retrieved

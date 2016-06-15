@@ -11,6 +11,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using Escc.Data.Ado;
 using EsccWebTeam.Data.Web;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Humanizer;
 
 namespace Escc.AZ.Website
@@ -27,6 +28,12 @@ namespace Escc.AZ.Website
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
+
             Http.CacheDaily(5, 0);
 
             this.context = AZContext.Current;

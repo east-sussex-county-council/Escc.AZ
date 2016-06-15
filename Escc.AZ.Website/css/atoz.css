@@ -3,11 +3,11 @@
 #azSearchForm label input { margin-right: .5em; }
 
 .form .alphabet { font-size: 1.230769em; line-height: 1.125em; margin: 1.125em 0 0 -.2em; font-weight: bold; }
-.form .alphabet a, .form .alphabet em { padding: 0 .2em; }
+.form .alphabet a, .form .alphabet em { padding: 0 .13em; }
 .form .alphabet em { color: #fff; background: #003c69; font-style: normal; border-radius: 3px; }
 
-.text .az { margin: 1.384615em 0; }
-.text .az li { list-style: none; background: url(/escc.eastsussexgovuk/img/body/item-type.png) no-repeat 0 -995px; padding-left: 16px; margin: .692308em 0; }
+.text-content .az { margin-left: 1.153846em; }
+.text-content .az li { list-style: disc; margin: .692308em 0; }
 
 /* One line space (border + margin) between services as separator. Matching horizontal margin and padding to take border to edge of box. */
 .azService { border-bottom: .076923em solid #dae1e5; margin: 0 -18px 1.307692em; padding: 0 18px 0; }
