@@ -1,4 +1,5 @@
 using System;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 
 namespace Escc.AZ.Admin
 {
@@ -11,6 +12,11 @@ namespace Escc.AZ.Admin
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
             /*			NameValueCollection config = (NameValueCollection)ConfigurationSettings.GetConfig("egmsXml");
 
                         XmlDocument ipsv = new XmlDocument();

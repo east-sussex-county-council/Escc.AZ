@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Microsoft.ApplicationBlocks.Data;
 
 namespace Escc.AZ.Admin
@@ -17,6 +18,12 @@ namespace Escc.AZ.Admin
 
         private void Page_Load(object sender, System.EventArgs e)
         {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
+
             if (!this.IsPostBack)
             {
                 this.GetData();

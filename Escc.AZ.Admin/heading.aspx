@@ -6,17 +6,17 @@
 		DateCreated="2004-05-24"
 		IpsvPreferredTerms="Local government"
 	 />
-    <ClientDependency:Css runat="server" Files="FormsSmall;AtoZManage" />
+    <ClientDependency:Css runat="server" Files="FormsSmall;AtoZManage;ContentSmall" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
-        <ClientDependency:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="FormsMedium;ContentMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="FormsLarge;ContentLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="content">
 <div class="full-page">
     <section>
-        <div class="text">
+        <div class="content text-content">
 	        <h1 id="h1" runat="server">Manage A&#8211Z heading</h1>
 
 	        <asp:validationsummary runat="server" displaymode="BulletList" showsummary="True" enableclientscript="False" headertext="Heading not saved:" />
@@ -95,5 +95,3 @@
 <asp:Content runat="server" ContentPlaceHolderID="javascript">
 	<script type="text/javascript" src="heading-1.js"></script>
 </asp:Content>
-
-<asp:Content runat="server" ContentPlaceHolderID="supporting" />

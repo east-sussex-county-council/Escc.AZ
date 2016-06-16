@@ -6,6 +6,11 @@
 		DateCreated="2004-05-24"
 		IpsvPreferredTerms="Local government"
 		/>
+    <ClientDependency:Css runat="server" Files="ContentSmall" />
+    <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
+        <ClientDependency:Css runat="server" Files="ContentMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="ContentLarge" MediaConfiguration="Large" />
+    </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="atoz" />
@@ -14,7 +19,7 @@
 <asp:Content runat="server" ContentPlaceHolderID="content">
 <div class="full-page">
     <section>
-        <div class="text">
+        <div class="content text-content">
             <h1>Orphaned A&#8211;Z services</h1>
             <p>These services have <strong>no heading</strong>, and <strong>will not be displayed</strong> on www.eastsussex.gov.uk. They <strong>will display</strong> on other authorities' sites.</p>
             <table summary="Services beginning with the currently selected letter" class="itemManager">
@@ -29,5 +34,3 @@
 <asp:Content runat="server" ContentPlaceHolderID="javascript">
 	<script type="text/javascript" src="services.js"></script>
 </asp:Content>
-
-<asp:Content runat="server" ContentPlaceHolderID="supporting" />

@@ -6,13 +6,17 @@
 		DateCreated="2004-05-24"
 		IpsvPreferredTerms="Local government"
 		 />
-    <ClientDependency:Css runat="server" Files="AtozManage" />
+    <ClientDependency:Css runat="server" Files="AtozManage;ContentSmall" />
+    <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
+        <ClientDependency:Css runat="server" Files="ContentMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="ContentLarge" MediaConfiguration="Large" />
+    </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="content">
 <div class="full-page">
 <section>
-<div class="text">
+<div class="content text-content">
 	<h1>Manage A&#8211;Z services</h1>
 	<div id="azBox" runat="server"></div>
 	<p><a href="service.aspx">Add a new service&#8230;</a></p>
@@ -29,5 +33,3 @@
 <asp:Content runat="server" ContentPlaceHolderID="javascript">
 	<script type="text/javascript" src="services-1.js"></script>
 </asp:Content>
-
-<asp:Content runat="server" ContentPlaceHolderID="supporting" />

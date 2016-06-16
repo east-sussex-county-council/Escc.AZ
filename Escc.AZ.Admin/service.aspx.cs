@@ -13,6 +13,7 @@ using Escc.FormControls.WebForms;
 using Escc.FormControls.WebForms.Validators;
 using Escc.Web.Metadata;
 using EsccWebTeam.EastSussexGovUK;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Microsoft.ApplicationBlocks.Data;
 
 namespace Escc.AZ.Admin
@@ -26,6 +27,12 @@ namespace Escc.AZ.Admin
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
+
             this.azContext = AZContext.Current;
 
             if (!IsPostBack)

@@ -6,16 +6,17 @@
 		datecreated="2006-06-15"
 		ipsvpreferredterms="Local government"
 	 />
-    <ClientDependency:Css runat="server" Files="FormsSmall" />
+    <ClientDependency:Css runat="server" Files="FormsSmall;ContentSmall" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
-        <ClientDependency:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="FormsMedium;ContentMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="FormsLarge;ContentLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer></asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="content">
 <div class="full-page">
     <section>
-	    <h1 class="text">A-Z administration tasks</h1>
+        <div class="content text-content">
+	    <h1>A-Z administration tasks</h1>
 	    <div class="form simple-form">
         <div class="formBox roundedBox"><div><div><div>
 	    <fieldset class="formPart">
@@ -30,8 +31,7 @@
 	    </div></div></div></div>
 	    <div class="formButtons"><FormControls:EsccButton id="submit" runat="server" text="Next" onclick="submit_Click" /></div>
         </div>
+        </div>
     </section>
 </div>
 </asp:Content>
-
-<asp:Content runat="server" ContentPlaceHolderID="supporting" />

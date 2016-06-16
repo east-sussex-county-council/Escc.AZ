@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Escc.AZ.Admin._default" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="metadata">
 	<Metadata:MetadataControl id="headcontent" runat="server" 
@@ -6,19 +6,18 @@
 		IpsvPreferredTerms="Internet"
 		DateCreated="2011-04-15"
 		/>
-    <ClientDependency:Css runat="server" Files="LandingSmall" />
+    <ClientDependency:Css runat="server" Files="LandingSmall;ContentSmall" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css runat="server" Files="LandingMedium" MediaConfiguration="Medium" />
-        <ClientDependency:Css runat="server" Files="LandingLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="LandingMedium;ContentMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="LandingLarge;ContentLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="content">
 <div class="full-page">
 <section>
-    <div class="text">
+    <div class="content text-content">
         <h1>Manage A-Z of council services</h1>
-    </div>
         
         
 <div id="ctl00_content_ctl05_container" class="landing descriptions">
@@ -60,9 +59,7 @@
     </div>
     </div>
 
-
+        </div>
 </section>
 </div>
 </asp:Content>
-
-<asp:Content runat="server" ContentPlaceHolderID="supporting" />

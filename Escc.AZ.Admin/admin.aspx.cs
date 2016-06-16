@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using Escc.Web.Metadata;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Microsoft.ApplicationBlocks.Data;
 
 namespace Escc.AZ.Admin
@@ -15,6 +16,15 @@ namespace Escc.AZ.Admin
     /// </summary>
     public partial class admin : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
+        }
+
         protected void submit_Click(object sender, EventArgs e)
         {
             if (this.tasks.Items[0].Selected)

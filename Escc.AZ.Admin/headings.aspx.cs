@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.UI.HtmlControls;
 using Escc.NavigationControls.WebForms;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Exceptionless;
 using Microsoft.ApplicationBlocks.Data;
 
@@ -18,6 +19,12 @@ namespace Escc.AZ.Admin
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
+
             // delete heading if requested
             if (Request.QueryString["deleteheading"] != null)
             {

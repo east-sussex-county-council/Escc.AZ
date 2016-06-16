@@ -6,17 +6,17 @@
 		DateCreated="2005-11-04"
 		IpsvPreferredTerms="Local government"
 		/>
-    <ClientDependency:Css runat="server" Files="FormsSmall" />
+    <ClientDependency:Css runat="server" Files="FormsSmall;ContentSmall" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
-        <ClientDependency:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css runat="server" Files="FormsMedium;ContentMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="FormsLarge;ContentLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="content">
 <div class="full-page">
 <article>
-    <div class="text">
+    <div class="content text-content">
 	    <h1>Manage popular forms</h1>
 	    <p>The higher the popularity, the higher the form appears in the list of popular forms. Forms with a popularity of 0 drop off the bottom of the list.</p>
 	
@@ -52,5 +52,3 @@
 </article>
 </div>
 </asp:Content>
-
-<asp:Content runat="server" ContentPlaceHolderID="supporting" />
