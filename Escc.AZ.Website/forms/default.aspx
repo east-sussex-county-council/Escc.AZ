@@ -1,4 +1,4 @@
-<%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.forms.Forms" EnableViewState="false" MasterPageFile="~/masterpages/EastSussexGovUK.master" %>
+<%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.forms.Forms" EnableViewState="false" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
 	<Metadata:MetadataControl id="headContent" runat="server"
 		Title="A-Z of forms: {0}"

@@ -1,4 +1,4 @@
-<%@ Page language="c#" Codebehind="popular.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.forms.Popular" EnableViewState="false" MasterPageFile="~/masterpages/EastSussexGovUK.master" %>
+<%@ Page language="c#" Codebehind="popular.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.forms.Popular" EnableViewState="false" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
 	<Metadata:MetadataControl id="headContent" runat="server"
 		Title="Most popular East Sussex County Council forms: "
