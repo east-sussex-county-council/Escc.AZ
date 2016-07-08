@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.UI.WebControls;
-using EsccWebTeam.Data.Web;
+using Escc.Web;
 using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Microsoft.ApplicationBlocks.Data;
 
@@ -251,7 +251,7 @@ namespace Escc.AZ.Admin
                 }
 
                 // go back to service (which should show changed data)
-                Http.Status303SeeOther(new Uri("service.aspx?service=" + this.serviceId.Value, UriKind.Relative));
+                new HttpStatus().SeeOther(new Uri("service.aspx?service=" + this.serviceId.Value, UriKind.Relative));
             }
 
         }

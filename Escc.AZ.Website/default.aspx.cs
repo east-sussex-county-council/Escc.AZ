@@ -10,7 +10,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using Escc.Data.Ado;
-using EsccWebTeam.Data.Web;
+using Escc.Web;
 using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Humanizer;
 
@@ -34,7 +34,7 @@ namespace Escc.AZ.Website
                 skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
             }
 
-            Http.CacheDaily(5, 0);
+            new HttpCacheHeaders().CacheUntil(Response.Cache, DateTime.Now.AddDays(1));
 
             this.context = AZContext.Current;
             this.azScript.Visible = this.context.PartnersEnabled;

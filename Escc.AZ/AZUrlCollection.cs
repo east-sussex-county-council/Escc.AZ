@@ -1,7 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Web;
-using EsccWebTeam.Data.Web;
+using Escc.Html;
 
 namespace Escc.AZ
 {
@@ -38,7 +38,7 @@ namespace Escc.AZ
             }
             else
             {
-                link.Text = Iri.ShortenForDisplay(link.Url);
+                link.Text = new HtmlLinkFormatter().AbbreviateUrl(link.Url);
             }
 
             link.Description = description;

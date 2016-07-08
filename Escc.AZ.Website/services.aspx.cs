@@ -6,7 +6,8 @@ using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using Escc.Data.Ado;
-using EsccWebTeam.Data.Web;
+using Escc.Html;
+using Escc.Web;
 using EsccWebTeam.EastSussexGovUK;
 using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Exceptionless;
@@ -31,7 +32,7 @@ namespace Escc.AZ.Website
                 skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
             }
 
-            Http.CacheDaily(5, 0);
+            new HttpCacheHeaders().CacheUntil(Response.Cache, DateTime.Now.AddDays(1));
 
             this.context = AZContext.Current;
 
@@ -338,7 +339,7 @@ namespace Escc.AZ.Website
                             using (HtmlAnchor a = new HtmlAnchor())
                             {
                                 a.HRef = link.Url.ToString().Replace("+", "%20"); // Wealden's site doesn't treat "+" and "%20" equally. 
-                                a.InnerText = (link.Text.StartsWith("http:", StringComparison.Ordinal)) ? Iri.ShortenForDisplay(new Uri(link.Text)) : link.Text;
+                                a.InnerText = (link.Text.StartsWith("http:", StringComparison.Ordinal)) ? new HtmlLinkFormatter().AbbreviateUrl(new Uri(link.Text)) : link.Text;
 
                                 using (HtmlGenericControl dt = new HtmlGenericControl("dt"))
                                 {
