@@ -8,7 +8,11 @@
 		DateCreated="2005-11-03"
 		Description="Find forms for services provided by East Sussex County Council"
 		 />
-    <ClientDependency:Css runat="server" Files="AtoZ" />
+    <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
+        <ClientDependency:Css Files="AtoZ;ContentSmall" runat="server" />
+        <ClientDependency:Css runat="server" Files="ContentMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="ContentLarge" MediaConfiguration="Large" />
+    </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="atoz" />
@@ -24,7 +28,7 @@
 <asp:Content runat="server" ContentPlaceholderId="content">
     <div class="article">
     <article>
-        <div class="text">
+        <div class="content text-content">
     	    <h1>A&#8211;Z of forms</h1>
 
 	        <p>Apply for services provided by East Sussex County Council.</p>
@@ -52,17 +56,15 @@
 	        </asp:repeater>
 	
 	        <p id="noForms" runat="server">Sorry, there are no forms beginning with this letter.</p>
-        </div>
-
-        <EastSussexGovUK:Related runat="server">
-            <PagesTemplate>
-		        <ul>
-			        <li><a href="<%= ResolveUrl("~/") %>default.aspx">A&#8211;Z of services</a></li>
-		        </ul>
-            </PagesTemplate>
-        </EastSussexGovUK:Related>
 
         <EastSussexGovUK:Share runat="server" />
+        </div>
     </article>
     </div>
+        <div class="supporting related-links text-content content-small content-medium">
+            <h2>Related pages</h2>
+            <ul>
+			    <li><a href="<%= ResolveUrl("~/") %>default.aspx">A&#8211;Z of services</a></li>
+		    </ul>
+        </div>
 </asp:Content>

@@ -5,8 +5,8 @@
 		DateCreated="2004-08-05"
 		IpsvPreferredTerms="Local government"
 	 />
-    <ClientDependency:Css Files="AtoZ;ContentSmall" runat="server" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
+        <ClientDependency:Css Files="AtoZ;ContentSmall" runat="server" />
         <ClientDependency:Css Files="ContentMedium" MediaConfiguration="Medium" runat="server" />        
         <ClientDependency:Css Files="ContentLarge" MediaConfiguration="Large" runat="server" />        
     </EastSussexGovUK:ContextContainer>

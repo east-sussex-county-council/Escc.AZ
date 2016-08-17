@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Web.UI;
 using Escc.Data.Ado;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 
 namespace Escc.AZ.Website.forms
 {
@@ -17,6 +18,12 @@ namespace Escc.AZ.Website.forms
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
+
             // get data
             SqlParameter indexChars = new SqlParameter("@indexChars", SqlDbType.VarChar, 5);
             indexChars.Value = "abc"; // default

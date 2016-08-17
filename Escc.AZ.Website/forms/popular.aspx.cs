@@ -2,6 +2,7 @@ using System.Configuration;
 using System.Data;
 using System.Web.UI;
 using Escc.Data.Ado;
+using EsccWebTeam.EastSussexGovUK.MasterPages;
 
 namespace Escc.AZ.Website.forms
 {
@@ -13,6 +14,12 @@ namespace Escc.AZ.Website.forms
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            var skinnable = Master as BaseMasterPage;
+            if (skinnable != null)
+            {
+                skinnable.Skin = new CustomerFocusSkin(ViewSelector.CurrentViewIs(MasterPageFile));
+            }
+
             // get data
             DataTable data = EsccSqlHelper.ExecuteDatatable(ConfigurationManager.ConnectionStrings["DbConnectionStringAZ"].ConnectionString, CommandType.StoredProcedure, "usp_UrlSelectPopularForms");
 

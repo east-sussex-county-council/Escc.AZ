@@ -9,9 +9,9 @@
 		Description="Find services provided by the county, district and borough councils in East Sussex."
 		 />
     <meta name="robots" content="noindex, follow" />
-    <ClientDependency:Css Files="AtoZ;FormsSmall;ContentSmall" runat="server" />
     <ClientDependency:Script runat="server" Files="AtoZ" MergeWithSimilar="false" ID="azScript" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
+        <ClientDependency:Css Files="AtoZ;FormsSmall;ContentSmall" runat="server" />
         <ClientDependency:Css runat="server" Files="FormsMedium;ContentMedium" MediaConfiguration="Medium" />
         <ClientDependency:Css runat="server" Files="FormsLarge;ContentLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>

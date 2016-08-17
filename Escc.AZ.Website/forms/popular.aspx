@@ -7,15 +7,17 @@
 		IpsvPreferredTerms="Local government"
 		DateCreated="2005-11-04"
 		 />
-	<ClientDependency:Css Files="AtoZ" runat="server" />
+    <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
+        <ClientDependency:Css Files="AtoZ;ContentSmall" runat="server" />
+        <ClientDependency:Css runat="server" Files="ContentMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="ContentLarge" MediaConfiguration="Large" />
+    </EastSussexGovUK:ContextContainer>
 </asp:Content>
-
-<asp:Content runat="server" ContentPlaceHolderID="atoz" />
 
 <asp:Content runat="server" ContentPlaceholderId="content">
     <div class="article">
     <article>
-        <div class="text">
+        <div class="text-content content">
         	<h1>Most popular forms</h1>
 
 	        <div class="roundedBox azNav"><div><div><div>
@@ -34,18 +36,14 @@
 		        </footertemplate>
 	        </asp:repeater>
 
+            <EastSussexGovUK:Share runat="server" />
         </div>
-
-        <EastSussexGovUK:Related runat="server">
-            <PagesTemplate>
+    </article>
+    </div>
+	    <div class="supporting related-links text-content content-small content-medium">
+            <h2>Related pages</h2>
 		    <ul>
 			    <li><a href="<%= ResolveUrl("~/") %>default.aspx">A&#8211;Z of services</a></li>
 		    </ul>
-            </PagesTemplate>
-        </EastSussexGovUK:Related>
-
-        <EastSussexGovUK:Share runat="server" />
-    </article>
-    </div>
-
+        </div>
 </asp:Content>	
