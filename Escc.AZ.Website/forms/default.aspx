@@ -1,4 +1,5 @@
 <%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.forms.Forms" EnableViewState="false" %>
+<%@ Register tagPrefix="EastSussexGovUK" tagName="Share" src="~/share.ascx" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
 	<Metadata:MetadataControl id="headContent" runat="server"
 		Title="A-Z of forms: {0}"
@@ -9,9 +10,7 @@
 		Description="Find forms for services provided by East Sussex County Council"
 		 />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css Files="AtoZ;ContentSmall" runat="server" />
-        <ClientDependency:Css runat="server" Files="ContentMedium" MediaConfiguration="Medium" />
-        <ClientDependency:Css runat="server" Files="ContentLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css Files="AtoZ" runat="server" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 

@@ -37,8 +37,6 @@ Example: C:\>set GIT_ORIGIN_URL=https://example-git-server.com/{0}"
 $projectName = "Escc.AZ.Website"
 $adminProject = "Escc.AZ.Admin"
 
-DownloadProjectIfMissing $parentFolderOfThisScript "Escc.EastSussexGovUK"
-
 EnableDotNet40InIIS
 
 Write-Host "Setting up front-end website"
@@ -46,9 +44,7 @@ CreateApplicationPool $projectName
 CreateWebsite $projectName "$pathOfThisScript\$projectName"
 CreateHTTPSBinding $projectName "localhost"
 RemoveHTTPBinding $projectName 80
-CreateVirtualDirectory $projectName "Escc.EastSussexGovUK" "$parentFolderOfThisScript\Escc.EastSussexGovUK\Escc.EastSussexGovUK"
 CreateVirtualDirectory $projectName "img" "$parentFolderOfThisScript\Escc.EastSussexGovUK\Escc.EastSussexGovUK\img"
-CreateVirtualDirectory $projectName "masterpages" "$parentFolderOfThisScript\Escc.EastSussexGovUK\Escc.EastSussexGovUK\masterpages" true
 CopyConfig "$projectName\Web.example.config" "$projectName\web.config"
 
 Write-Host "Setting up admin website"
@@ -56,8 +52,6 @@ CreateApplicationPool $adminProject
 CreateWebsite $adminProject "$pathOfThisScript\$adminProject"
 CreateHTTPSBinding $adminProject "localhost"
 RemoveHTTPBinding $adminProject 80
-CreateVirtualDirectory $adminProject "Escc.EastSussexGovUK" "$parentFolderOfThisScript\Escc.EastSussexGovUK\Escc.EastSussexGovUK"
-CreateVirtualDirectory $adminProject "masterpages" "$parentFolderOfThisScript\Escc.EastSussexGovUK\Escc.EastSussexGovUK\masterpages" true
 DisableAnonymousAuthentication $adminProject
 EnableWindowsAuthentication $adminProject
 CopyConfig "$adminProject\Web.example.config" "$adminProject\web.config"

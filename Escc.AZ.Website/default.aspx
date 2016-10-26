@@ -1,4 +1,5 @@
 <%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.Headings" ValidateRequest="false" EnableViewState="false"  %>
+<%@ Register tagPrefix="EastSussexGovUK" tagName="Share" src="~/share.ascx" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
 	<Metadata:MetadataControl id="headContent" runat="server"
 		Title="A-Z of services: "
@@ -11,9 +12,9 @@
     <meta name="robots" content="noindex, follow" />
     <ClientDependency:Script runat="server" Files="AtoZ" MergeWithSimilar="false" ID="azScript" />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css Files="AtoZ;FormsSmall;ContentSmall" runat="server" />
-        <ClientDependency:Css runat="server" Files="FormsMedium;ContentMedium" MediaConfiguration="Medium" />
-        <ClientDependency:Css runat="server" Files="FormsLarge;ContentLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css Files="AtoZ;FormsSmall" runat="server" />
+        <ClientDependency:Css runat="server" Files="FormsMedium" MediaConfiguration="Medium" />
+        <ClientDependency:Css runat="server" Files="FormsLarge" MediaConfiguration="Large" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 

@@ -6,10 +6,12 @@ using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using Escc.Data.Ado;
+using Escc.EastSussexGovUK.Features;
+using Escc.EastSussexGovUK.Skins;
+using Escc.EastSussexGovUK.Views;
+using Escc.EastSussexGovUK.WebForms;
 using Escc.Html;
 using Escc.Web;
-using EsccWebTeam.EastSussexGovUK;
-using EsccWebTeam.EastSussexGovUK.MasterPages;
 using Exceptionless;
 
 namespace Escc.AZ.Website
@@ -133,12 +135,12 @@ namespace Escc.AZ.Website
                 else
                 {
                     // if there are no services, print a message saying so (shouldn't be able to get here in the first place)
-                    EastSussexGovUKContext.HttpStatus404NotFound(this.content);
+                    new HttpStatus().NotFound(Response);
                 }
             }
             catch (ArgumentException)
             {
-                EastSussexGovUKContext.HttpStatus400BadRequest(this.content);
+                new HttpStatus().BadRequest(Response);
             }
         }
 
@@ -230,7 +232,7 @@ namespace Escc.AZ.Website
             catch (FormatException)
             {
                 // FormatException most likely an inappropriate querystring value 
-                EastSussexGovUKContext.HttpStatus400BadRequest(this.content);
+                new HttpStatus().BadRequest(Response);
                 return null;
             }
         }

@@ -5,7 +5,9 @@ using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using Microsoft.ApplicationBlocks.Data;
 using System.Globalization;
-using EsccWebTeam.EastSussexGovUK.MasterPages;
+using Escc.EastSussexGovUK.Skins;
+using Escc.EastSussexGovUK.Views;
+using Escc.EastSussexGovUK.WebForms;
 
 namespace Escc.AZ.Admin
 {

@@ -1,4 +1,5 @@
 <%@ Page language="c#" Codebehind="popular.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.forms.Popular" EnableViewState="false" %>
+<%@ Register tagPrefix="EastSussexGovUK" tagName="Share" src="~/share.ascx" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
 	<Metadata:MetadataControl id="headContent" runat="server"
 		Title="Most popular East Sussex County Council forms: "
@@ -8,9 +9,7 @@
 		DateCreated="2005-11-04"
 		 />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css Files="AtoZ;ContentSmall" runat="server" />
-        <ClientDependency:Css runat="server" Files="ContentMedium" MediaConfiguration="Medium" />
-        <ClientDependency:Css runat="server" Files="ContentLarge" MediaConfiguration="Large" />
+        <ClientDependency:Css Files="AtoZ" runat="server" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 

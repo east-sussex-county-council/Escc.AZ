@@ -1,5 +1,7 @@
 using System;
-using EsccWebTeam.EastSussexGovUK.MasterPages;
+using Escc.EastSussexGovUK.Skins;
+using Escc.EastSussexGovUK.Views;
+using Escc.EastSussexGovUK.WebForms;
 
 namespace Escc.AZ.Admin
 {

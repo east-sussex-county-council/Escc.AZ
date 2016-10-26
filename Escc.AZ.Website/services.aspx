@@ -1,4 +1,5 @@
 <%@ Page language="c#" Codebehind="Services.aspx.cs" AutoEventWireup="True" Inherits="Escc.AZ.Website.Services" EnableViewState="false" %>
+<%@ Register tagPrefix="EastSussexGovUK" tagName="Share" src="~/share.ascx" %>
 <asp:Content runat="server" ContentPlaceholderId="metadata">
 	<Metadata:MetadataControl id="headContent" runat="server"
 		LgtLType="A to Z"
@@ -6,9 +7,7 @@
 		IpsvPreferredTerms="Local government"
 	 />
     <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css Files="AtoZ;ContentSmall" runat="server" />
-        <ClientDependency:Css Files="ContentMedium" MediaConfiguration="Medium" runat="server" />        
-        <ClientDependency:Css Files="ContentLarge" MediaConfiguration="Large" runat="server" />        
+        <ClientDependency:Css Files="AtoZ" runat="server" />
     </EastSussexGovUK:ContextContainer>
 </asp:Content>
 

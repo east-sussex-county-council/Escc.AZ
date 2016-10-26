@@ -6,11 +6,6 @@
 		DateCreated="2004-05-24"
 		IpsvPreferredTerms="Local government"
 		/>
-    <ClientDependency:Css runat="server" Files="ContentSmall" />
-    <EastSussexGovUK:ContextContainer runat="server" Desktop="true">
-        <ClientDependency:Css runat="server" Files="ContentMedium" MediaConfiguration="Medium" />
-        <ClientDependency:Css runat="server" Files="ContentLarge" MediaConfiguration="Large" />
-    </EastSussexGovUK:ContextContainer>
 </asp:Content>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="atoz" />
